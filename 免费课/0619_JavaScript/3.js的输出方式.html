@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    var oBox = document.getElementById("box");
+    oBox.style.width="100px";
+    oBox.style.height="100px"
+   //1.console.log
+    console.log(1); //number
+    console.log("1");//字符串
+    /*console.log({});*/
+    console.log(oBox);
+    console.dir(oBox);
+    console.dir(1);
+    //3.document.write() 页面中打印内容
+    document.write("document.write");
+
+   //4.alert：弹出；默认会进行数据类型转换，转换成字符串，调用tostring方法。会让当前代码停止到这一行。
+ /*   alert("alert");
+    alert([]);    //转成字符串空。*/
+
+    //5.confirm: 点击确定按钮返回值是true，取消返回false；
+    //confirm("confirm");
+  /*  var a=confirm("true-false");
+    console.log(a);*/
+    //6.prompt 点击确定时，输入框输入的内容就是函数的返回值，点击取消，返回值是null；
+/*    var b=prompt("prompt");
+    console.log(b);*/
+
+
+    //7.debugger:断点；
+
+
+</script>
+</body>
+</html>

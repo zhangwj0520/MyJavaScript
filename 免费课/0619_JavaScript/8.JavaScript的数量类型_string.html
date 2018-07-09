@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //字符串string，在js中被单引号 或者 双引号 包起来的都是字符串；
+    var str = "abcdefgh";
+    var s = 'www';
+    //索引 ，在字符串中，每一个字符都有一个与之对应的索引，这个索引是个数字，从0开始；
+   /* console.log(str[2]);//c*/
+
+    //length:字符串有一个length属性，属性值代表当前字符的字符个数；
+/*    console.log(str.length);//8
+    console.log(str[str.length-1]);//获取最后一个字符*/
+
+    //字符串的运算：+ - * /
+    //- * / 会先把字符串转成数字，然后进行计算
+    //1.任何数字和NaN计算，都是NaN；
+    //2.任何数字和undefined运算，得到NaN；
+    //+ 字符串拼接
+    console.log("5"-"4");//1
+    console.log("5px"-"4"); //NaN
+    console.log("undefined"-"4"); //NaN
+    console.log(null-"4"); //-4  ********
+    console.log("null"-"4"); //NaN  **********
+    console.log("5"*"4");//20
+    console.log(true*"4");//4
+    console.log("5"/"4");//1.25
+
+    console.log("5"+"44");//544
+    console.log("NaN"+"undefined");//NaNundefined
+    console.log("6px"+undefined);//6pxundefined
+
+    var a = true +[]+null+typeof 10 +undefined+{};
+    console.log(a); //truenullnumberundefined[object Object]
+
+
+</script>
+</body>
+</html>

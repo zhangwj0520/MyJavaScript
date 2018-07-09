@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #tab{
+            width:500px;
+            height:350px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -250px;
+            margin-top:-175px;
+        }
+        #tab ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        #tab ul li{
+            width:80px;
+            height:30px;
+            text-align: center;
+            line-height: 30px;
+            border: 1px solid lightgreen;
+            float:left;
+            margin-right:10px;
+            cursor:pointer;
+        }
+        #tab ul li.select{
+            background-color: #2419ff;
+        }
+        #tab div{
+            display: none;
+            width:500px;
+            height:320px;
+            text-align: center;
+            line-height: 320px;
+            font-size: 30px;
+            color:lightcoral;
+            border: 1px solid lightgreen;
+        }
+        #tab div.select{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="select">世界杯</li>
+        <li>综艺</li>
+        <li>电影</li>
+        <li>动漫</li>
+
+    </ul>
+    <div class="select">梅西</div>
+    <div>跑男</div>
+    <div>复联3</div>
+    <div>海贼王</div>
+</body>
+<script>
+    var tab=document.getElementById("tab");
+    var oLis=tab.getElementsByTagName("li");
+    var oDiv=tab.getElementsByTagName("div");
+    len=oLis.length;
+    console.log(oLis);
+    for (var i=0;i<len;i++){
+        oLis[i].index=i;
+        if(i%2===0){
+            oLis[i].style.backgroundColor="red";
+            oDiv[i].style.backgroundColor="red";
+        }
+        else{
+            oLis[i].style.backgroundColor="green";
+            oDiv[i].style.backgroundColor="green";
+        }
+        oLis[i].onclick=function () {
+            for(var j=0;j<len;j++){
+                oLis[j].className ="";
+                oDiv[j].className ="";
+
+            }
+
+            this.className="select";
+            oDiv[this.index].className ="select";
+            console.log(oLis);
+        }
+    }
+
+
+
+</script>
+</html>

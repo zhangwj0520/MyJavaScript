@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM的节点和属性</title>
+    <link rel="apple-touch-icon" href="">
+</head>
+
+<body>
+<div id="parent" style="color: red">
+    世界杯f
+    <div id="bro">
+        <div>
+            <span></span>
+            <a href=""></a>
+            <ul>
+                <li>11</li>
+                <li>22</li>
+                <li>33</li>
+                <li>44</li>
+            </ul>
+        </div>
+        <span>俄罗斯</span>
+        世界杯L
+    </div>
+    <!--hahah-->
+    <div id="second"></div>
+    jjjj
+    <div id="last"></div>
+    <span></span>
+</div>
+
+<script>
+    //dom的节点和属性 :四种类型的节点
+    //              nodeType:           nodeName                  nodeValue
+    //元素节点      1                   大写的标签名              null
+    //文本节点      3                   #text                    文本内容
+    //注释节点      8                   #comment                 注释内容
+    //document      9                   #document               null
+
+    //空格和换行都是文本节点
+
+    var parent=document.getElementById("parent");
+    var sec=document.getElementById("box1")
+    /*console.dir(parent);*/
+    //节点属性:
+    //1.childNodes :获取当前元素的子节点.
+/*    console.log(parent.childNodes);
+    parent.childNodes[1].style.width="100px";*/
+    //2.children :获取当前元素的子元素节点   ie8及以下不兼容.
+    function children(){
+        var childList=curEle.childNodes;
+        var ary=[i];
+        for (var i = 0; i <ary.length; i++) {
+            if(childList[i].nodeType===1){
+                ary.push(childList[i])
+            }
+        }
+        return ary;
+    }
+    //3.firstChild:获取第一个子节点
+    //parent.firstElementChild 获取第一个元素子节点:  在IE8及以下不兼容
+/*    console.log(parent.firstChild);
+    console.log(parent.firstElementChild);*/
+    //4.lastChild: 获取最后一个子节点
+    //lastElementChild 获取最后一个元素子节点
+/*    console.log(parent.lastChild);
+    console.log(parent.lastElementChild);*/
+
+    //5.previousSiblingg 获取上一个哥哥节点
+    //previousElementSibling  获取上一个哥哥元素节点
+/*    console.log(sec.previousSibling);
+    console.log(sec.previousElementSibling);*/
+
+    //6.nextSibling  获取下一个弟弟节点
+    //nextElementSibling  获取底下一个弟弟元素节点.
+/*    console.log(sec.nextSibling);
+    console.log(sec.nextElementSibling);*/
+
+    //7.parentNode  获取当前元素的父亲节点
+/*    var body=document.body;
+    console.log(body.parentNode);
+    console.log(body.parentNode.previousSibling);*/
+
+    //获取上一个哥哥元素节点,兼容所有浏览器的方法;
+    function getBrother(curEle) {
+        var pre=curEle.previousSibling;
+        while(pre){
+            if(pre.nodeType===1){
+                return pre;
+            }
+            pre = pre.previousSibling;
+        }
+        return null; //或者返回pre;while循环最后一次执行pre.
+    }
+    var last =document.getElementById("last");
+    console.log(getBrother(last));
+
+</script>
+</body>
+</html>

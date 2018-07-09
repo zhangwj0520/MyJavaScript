@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //arguments 函数体中的参数集合,函数天生自带的参数集合
+    //不是一个数字,是对象数据类型的,类数组;
+    //callee属性 代表函数本身
+/*    function sum(){
+        console.log(arguments);//跟实参有关系
+        for(var i=0,total=0;i<arguments.length;i++){
+            if(typeof arguments[i]==="number"&&!NaN){
+                total+=arguments[i];
+            }
+        }
+        console.log(total);
+    }
+    sum(1,2,3,4,5,6)*/
+
+    function sum() {
+        for(var i=0,total=0;i<arguments.length;i++){
+            var cur=arguments[i];
+            if(!isNaN(cur)&&typeof cur==="number"){
+            //if(!isNaN(cur)){
+                total+=Number(cur);
+            }
+        }
+        console.log(total);
+        return total;
+    }
+
+    var a=sum(12,"12px","12",true,[]);
+    console.log(a);
+
+
+</script>
+</body>
+</html>

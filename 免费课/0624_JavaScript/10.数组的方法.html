@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary=[1,2,3,4,5];
+    //对象数据类型;
+    //数组成员有一个与之对应的索引
+    //length:代表数组成员的个数
+
+    //操作改变数组一些方法;
+    //1.push
+/*    ary.push(20)
+    console.log(ary.push(20));
+    console.log(ary);*/
+    //2.pop()
+/*    console.log(ary);
+    ary.pop();
+    console.log(ary);
+    console.log(ary.pop());*/
+    //3.unshift
+/*    console.log(ary);
+    var a=ary.unshift(100,200);
+    console.log(ary);
+    console.log(a);*/
+    //4.shift()
+    var a=ary.shift()
+    console.log(ary);
+    console.log(a);
+    //5.slice
+/*    var a=ary.slice(1,2);
+    console.log(ary);
+    console.log(a);*/
+
+/* console.log(ary.slice());*/
+
+    //6.splice  删除
+/*    var a=ary.splice(3.2);
+    console.log(ary);
+    console.log(a);*/
+    var b=ary.splice(2,0,11,12,13)
+    console.log(ary);
+
+</script>
+</body>
+</html>

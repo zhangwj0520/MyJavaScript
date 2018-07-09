@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>dddddddddd</div>
+<script>
+    //this  当前函数执行的主体
+    //this是谁和函数在哪里定义的以及在哪里执行的没有任何关系
+    //在JS非严格模式下(默认模式)
+    //1/自执行函数中的this一般都是window.
+    //2.给元素的某个事件绑定方法,当事件触发执行对应方法的时候,方法中this一般都是当前操作的元素本身.
+    //oBox.onclick=function(){
+    // this->oBox;
+    // }
+    //3.还有一种方式可以快速区分this:当方法执行的时候,看看方法名前面是否有"点",点前面是谁this就是谁,没有点,一般都是window
+    //obj.fn();--->this:obj;
+    //
+    //在JS的严格模式下(让JS更加严谨)
+    //开启严格模式在当前作用域的第一句话加上"use strict",开启严格模式,那么当前作用域下再执行的JS代码都是按照严格模式处理的.
+
+    // "use strict";  //当前JS代码都开启了严格模式(包含了函数中的代码)
+    // function fn() {
+    //     console.log(this);
+    // }
+    // fn();//undefined;  //
+    // window.fn();//window
+
+    ///
+    // ~function () {
+    //   "use strict";//只是把当前私有作用域开启了严格模式(对外面全局没有影响)
+    // }();
+    //在jS严格模式下,如果执行主体不明确,this指向的是undefined(非严格模式下指向的是window)执行主体才是window
+
+    // function fn() {
+    //     console.log(this);
+    // }
+    // document.body.onclick=function () {
+    //     //this->document.body
+    //     fn();
+    // }
+
+
+    //
+    var num=1,obj={
+        num:2,
+        fn:(function (num) {
+            this.num*=2;
+            num+=2;
+            return function () {
+                this.num*=3;
+                num++;
+                console.log(num);
+            }
+        })(num)
+    };
+    var f=obj.fn;
+
+    f();  //4
+    obj.fn();//5
+    console.log(num, obj.num);//6  6
+
+     //1.obj 定义   GO:num
+    //              obj:{num:2,fn:自执行函数的结果}
+    //自执行函数AO{num:1,this指向window ,GO:num=2,,AO:num=3
+    //return :
+    // }
+
+</script>
+</body>
+</html>

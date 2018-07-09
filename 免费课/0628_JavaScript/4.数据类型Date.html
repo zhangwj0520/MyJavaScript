@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型Date</title>
+</head>
+<body>
+<script>
+/*    console.log(document.getElementById);
+    console.log([].push);
+    console.log(typeof Date); //"function"
+    //Date 实例
+    console.log(typeof new Date());//object*/
+
+     var time = new Date();//获取本机的时间
+    console.log(time);
+    console.dir(time);
+    //获取年
+    var year=time.getFullYear();
+    console.log(year);
+    //获取月
+    var month=time.getMonth();
+    console.log(month);
+    //获取日
+    var date=time.getDate();
+    console.log(date);
+    //获取星期
+    var day=time.getDay();
+    console.log(day);
+    //获取小时
+    var hour=time.getHours();
+    console.log(hour);
+    //分钟数
+    var min=time.getMinutes();
+    console.log(min);
+    //秒
+    var sec=time.getSeconds();
+    console.log(sec);
+    //毫秒
+    var milSec = time.getMilliseconds();
+    console.log(milSec);
+    //时间戳:当前时间距离1970-1-1日早上八点的毫秒数
+    var time=time.getTime();
+    console.log(time);
+    //时间戳
+    var now=Date.now();
+    console.log(now);
+
+
+
+
+</script>
+
+</body>
+</html>

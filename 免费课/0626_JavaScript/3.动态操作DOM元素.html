@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hello{
+            width: 100px;
+            height: 100px;
+            background-color: #434343;
+        }
+        .world{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <p>这是p</p>
+    <div class="a">这是div</div>
+</div>
+<script>
+    var oBox = document.getElementById("box");
+/*   /!* oBox.innerHTML="哈哈哈";*!/
+    //1.document.createELement  创建元素
+    var newDiv= document.createElement("div");
+    //2.appendChild:向元素的末尾添加子节点;
+    //父级.appendChild(子级);
+    oBox.appendChild(newDiv);
+    //3.removeChild 删除子节点
+    var div =document.getElementsByTagName("div");
+   /!* oBox.removeChild(div[1]);*!/
+    //4.replaceChild(newChild,oldChild)
+    var span = document.createElement("span");
+    var p=document.getElementsByTagName("p");
+    oBox.replaceChild(span,div[1]);
+ /!*   oBox.replaceChild(p[0],span);*!/*/
+
+    //5.insertBefore(newChild,oldChild)
+
+    var sss = document.createElement("span");
+    var div =document.getElementsByTagName("div");
+    document.body.appendChild(sss);
+  /*  oBox.insertBefore(span,div[1]);*/
+
+    //6.cloneNode 复制节点
+    //参数:true 深克隆,会把当前元素及子孙节点全部获取到
+    //  false或者空,浅克隆,只会克隆当前元素节点.
+/*    console.log(oBox.cloneNode());
+    console.log(oBox.cloneNode(false));
+    console.log(oBox.cloneNode(true));*/
+
+/*    var a=document.getElementsByClassName("a");
+    var b=a.cloneNode(true);
+    oBox.appendChild(b);
+    */
+
+    //7.setAttribute()设置自定义属性;
+    //getAttribute
+        // 不能获取通元素.属性=属性值,这种方式新增的属性,
+        // 可以获取行内直接设置的,还有通过setAttribut来设置的属性
+        // 如果获取不到自定义行内属性,结果就是null
+    //removeAttribute()移除行内属性
+    div[1].setAttribute("name","time");
+    div[1].color="red";
+    console.log(div.name); //undefined
+    console.log(div[1].getAttribute("class"));
+    console.log(div[1].getAttribute("name"));
+    console.log(div[1].getAttribute("color"));// 获取不到就是null
+    div[1].removeAttribute("class");
+    div[1].className="aa";
+
+    //8.classList
+    //add:增加
+    //remove 移除
+    div[1].classList.add("hello");
+    div[1].classList.remove("aa");
+    div[1].classList.replace("hello","world");
+    div[1].onclick =function () {
+        if(div[1].className==="hello"){
+            div[1].classList.replace("hello","world");
+        }
+        else{
+            div[1].classList.replace("world","hello");
+        }
+    }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //JS单线程,每次只能执行一行代码;for循环是同步,需要等待for循环完成,才能继续往下执行.
+    //for 循环
+/*    for(var i=0;i<100;i++){
+        console.log(i);
+    }*/
+    //for 循环的四部曲;
+    //1.初始化变量;
+    //2.条件判断;
+    //3.执行循环体中的代码;
+    //4.执行i++
+    //i++ ;在自身的基础上加1;
+/*    var a=0
+    console.log(a++);//先输出a的值,在+1;*/
+
+/*    for(var i=0,sum=0;i<101;i++){
+       if(i%3==0)
+        sum+=i;
+    }*/
+    //console.log(sum);
+    //continue
+/*    for(var i=0,sum=0;i<10;i++){
+        if(i%2==0){
+            continue;
+        }
+        console.log(i);
+    }*/
+
+    //break 结束整个循环
+/*    for(var i=0;i<10;i++) {
+     if(i>3){break}
+     console.log(i);
+     }
+     console.log(i);*/
+
+/*    for(var i=0,sum=0;i<11;i++){
+        sum++;
+        console.log("i"+i);
+        if(i<5){
+            i+=2;
+            console.log("a"+i);
+            continue;
+
+        }
+        if (i>8){
+            i++;
+            break;
+            console.log("b"+i);
+        }
+        i++;
+        console.log("c"+i);
+    }
+    console.log(i);
+    console.log(sum);*/
+
+    for(var i=0,sum=0;i<11;i++){
+        sum++;
+        console.log("i"+i);
+        if(3<=i<5){
+            i+=2;
+            console.log("a"+i);
+            continue;
+
+        }
+        if (i>8){
+            i++;
+            break;
+            console.log("b"+i);
+        }
+        i++;
+        console.log("c"+i);
+    }
+    console.log(i);
+    console.log(sum);
+
+/*    var str="helloworld!";
+    var len=str.length;
+    for(var i=0;i<len;i++){
+        console.log(str[i]+"<br>");
+    }*/
+
+</script>
+
+</body>
+</html>

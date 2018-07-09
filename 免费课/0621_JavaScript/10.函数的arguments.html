@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //arguments
+/*    function sum() {
+     //arguments : 函数体中天生自带实参参数集合
+     console.log(arguments instanceof Array);
+     console.log(arguments);
+     for (var i=0,sum=0;i<6;i++){
+     sum+=arguments[i];
+     }
+     console.log(sum);
+     }
+     sum(1,2,3,4,55,55);
+     sum("1",11,22,"12px")*/
+
+/*
+    function sum() {
+        for(var i=0,sum=0;i<arguments.length;i++)
+            if(!isNaN(arguments[i])){ //校验当前值转number是否是有效数字,如果是有效数字,进行判断条件;
+            sum+=Number(arguments[i]);
+            }
+        console.log(sum);
+    }
+    sum("1",11,22,"12px")
+*/
+    function sum() {
+        for(var i=0,sum=0;i<arguments.length;i++)
+            if(typeof arguments[i]==="number"&&!isNaN(arguments[i])){
+                sum+=arguments[i];
+            }
+        console.log(sum);
+    }
+    sum("1",11,22,"12px",NaN)
+
+
+</script>
+</body>
+</html>

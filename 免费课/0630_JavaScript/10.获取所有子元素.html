@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <div class="box1">
+        <div class="second">
+            <div class="third"></div>
+        </div>
+    </div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div id="box5"></div>
+</div>
+<script>
+    function getAllChildren(curEle) {
+        console.log(1);
+        var ary=[];
+        var child=curEle.childNodes;
+        for (var i = 0; i < child.length; i++) {
+            if (child[i].nodeType===1){
+                ary.push(child[i]);
+                if(child[i].childNodes.length!==0){
+                    /*ary=[...ary,...getAllChildren(child[i])];*/
+                    ary=ary.concat(getAllChildren(child[i]));
+                }
+            }
+        }
+        /*console.log(ary);*/
+        return ary
+
+    }
+    var box=document.getElementById("box");
+    console.log(getAllChildren(box));
+
+
+</script>
+</body>
+</html>

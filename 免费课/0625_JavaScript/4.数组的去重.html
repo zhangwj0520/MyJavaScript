@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /*
+     var ary = [12,8,88,12,99,88,66,77,66,2,12];
+     引入新数组
+     var newAry  = [];
+     for (var i=0;i<ary.length;i++){
+     var cur=ary[i]
+     /!*       //方法一:判断原数组里面的值是否唯一
+     if(ary.indexOf(ary[i])==i){
+     newAry.push(cur);
+     }*!/
+
+     //方法二:判断新数组是否含有原数组的值 如果没有将该值push到新数组
+     if(newAry.indexOf(cur)===-1){
+     newAry.push(cur);
+     }
+     }
+     console.log(newAry);*/
+
+    /* 方法三 map遍历 如果相同的push到新数组
+    var ary = [1,1,1,1,22,33,44,55,66,44,33,44,33,22];
+     var ary1=[];
+     ary.map(function (item, index) {
+     if(ary.indexOf(item)===index){
+     ary1.push(item);
+     }
+     })
+     console.log(ary1);*/
+
+    //对象的属性名不能重复:
+    /*    var ary = [12,8,88,12,99,88,66,77,66,2,12];
+     var obj={};
+     for(var i=0;i<ary.length;i++){
+     var cur =ary[i];
+     /!*        if(obj[cur]===cur) {
+     ary.splice(i, 1);
+     i--;
+     continue;
+     }*!/
+     obj[cur]=cur;
+
+     /!*        }
+     else
+     {
+     obj[cur]=cur;
+     }*!/
+     }
+     console.log(ary);
+     console.log(obj);*/
+
+
+
+    //对象的属性名不能重复:
+    var ary = [1, 1, 1, 1, 22, 33, 44, 55, 66, 44, 33, 44, 33, 22];
+    var obj = {};
+    for (var i = 0; i < ary.length; i++) {
+        var cur = ary[i];
+        if (obj[cur] === cur) {
+            ary[i] = ary[ary.length - 1];//把最后一项赋值给当前项,,数组项数减1;
+            ary.length--;
+            i--;
+            continue;
+        }
+        obj[cur] = cur;
+    }
+    console.log(ary);
+
+    /*
+     var ary = [1,1,1,1,22,33,44,55,66,44,33,44,33,22];
+     var obj={};
+     for(var i=0;i<ary.length;i++) {
+     var cur=ary[i];
+     obj[cur]=cur;
+     }
+     var newAry=[];
+     for(var key in obj){
+     newAry.push(obj[key])
+     }
+     console.log(newAry);
+     */
+
+    var arr = [1,2,2,2,3,3,1,2,3,1];
+    var r = arr.filter(function(element,index,self){
+        return self.indexOf(element) === index;
+    });
+    console.log(r);
+
+</script>
+</body>
+</html>

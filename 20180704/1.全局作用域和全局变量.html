@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局作用域</title>
+</head>
+<body>
+<script>
+    //全局作用域:提供代码运行的环境;
+    //浏览器的渲染机制:先形成dom树,再形成CSS树,最后两个树形成render树.
+    //全局对象window 内置属性
+    //全局作用域 1.环境  2.存储
+
+    //全局变量:在全局作用域下定义的变量是全局变量.
+    //1会给window新增一个键值对.\
+    //2全局下定义的函数相当于给window新增键值对,属性名是函数名,属性值是整个函数,
+    // var num=10;
+    function fn() {
+        var total = 0;
+        var len = arguments.length;
+        for (var i = 0; i < len; i++) {
+            var cur = arguments[i];
+            if (!isNaN(cur)) {
+                total += cur;
+            }
+        }
+        t = total;
+    }
+
+    fn(1, 2, 3, 34, 55);
+    console.log(t);
+
+    console.log(fn() in window);//代表fn()的返回值 undefined
+    console.log("fn" in window);
+
+    /*    var a,b,fn=function(){
+            var a=b=10;  //未声明的变量的是全局变量
+        }
+        fn();
+        console.log(a, b);
+        GO{
+            a:
+
+            b=10
+            fn=function () {
+
+            }
+
+        }
+        AO{
+            a:
+
+        }*/
+
+    /*    var a=b=c=10;
+        var d=e=f={};
+        c=11;
+        f.a=0;
+        console.log(a);*/
+    b = 10;
+
+
+</script>
+
+</body>
+</html>

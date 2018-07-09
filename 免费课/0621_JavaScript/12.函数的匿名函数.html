@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //匿名函数
+    //
+/*    var f=function () {
+        console.log(1);
+
+    }
+    f();//可以执行
+    */
+    //自执行函数
+    (function () {
+        console.log(111);
+    })();
+     !function () {console.log(112);}();
+     +function () {}();
+     -function () {}();
+    ~function () {}();
+
+
+    var a=-function () {
+        return 10;
+    };
+    console.dir(a);
+    var b=0-"NaN";
+    console.log(b);
+
+</script>
+</body>
+</html>

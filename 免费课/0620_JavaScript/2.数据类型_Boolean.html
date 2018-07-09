@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //布尔类型 ：true false；
+    //console.log(typeof true);//boolean
+    //true ---->1   false---->0
+    //console.log(Number(true));
+    //console.log(Number(false));
+
+    //Boolean:把其他数据类型转换布尔类型；
+    //其他数据类型转布尔类型是false的有且仅有五个值，0  ""  NaN  null undefined
+/*    console.log(Boolean(0));
+    console.log(Boolean(""));
+    console.log(Boolean(null));
+    console.log(Boolean(undefined));
+    console.log(Boolean(NaN));
+
+    console.log(Boolean("  ")); //true
+    console.log(Boolean(12));
+    console.log(Boolean(10));
+    console.log(Boolean("12px"));
+    console.log(Boolean([])); //true
+    console.log(Boolean({}));
+    console.log(Boolean(/\d/));*/
+
+    //逻辑运算符：|| 或       && 且
+    //1.放在if条件中
+    // ||  只要其中有个一个为true，结果为true
+    //  &&  只要有一个为false ，结果为false
+/*
+    if(""||0){
+        console.log(100);}
+    if(99&&0){
+        console.log(0);}
+*/
+
+    //2.赋值作用：
+    //||如果前面这个值转布尔是true，直接取前面这个值；如果转布尔是false，直接去后面的那个值；
+    //&&如果前面转布尔是true，直接去后面；如果转布尔是false，直接取前面的值
+
+
+/*    var abc = "12px"||undefined;
+    console.log(abc); //12px
+
+    abc = ""||undefined;
+    console.log(abc);//undefined
+
+    abc = null||11;
+    console.log(abc);//11
+
+    abc = "12px"&&"12"
+    console.log(abc);//12
+
+    abc = "12"&&0
+    console.log(abc);//0
+
+    abc = "null"&&11;
+    console.log(abc);//11
+
+    abc = 0&&11;
+    console.log(abc);//0*/
+
+    //数据额类型之间的比较:true false;
+    //! 取反   首先会把后面的值转换成布尔值,然后再取反;
+    //!!  直接把当前值转成布尔值
+    console.log(!false);//true
+    console.log(!1);//false
+    console.log(![]);//false
+
+
+    console.log(!!"");//false
+
+
+</script>
+</body>
+</html>

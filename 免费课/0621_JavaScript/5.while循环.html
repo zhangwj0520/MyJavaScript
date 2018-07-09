@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //while循环,不知道循环多少次;
+/*
+    var i = 1;
+    while(i<2){
+        alert("哈哈哈");
+        i++;
+    }
+*/
+
+/*
+        1
+      1 2 1
+    1 2 3 2 1
+*/
+    var num =10;
+    for(var i=1;i<num;i++){
+        for(var j=0;j<num-1-i;j++){
+            document.write("&nbsp&nbsp");
+        }
+        for(var k=1;k<=i;k++){
+            document.write(k);
+        }
+        for(k-=2;k>0;k--){
+            document.write(k);
+        }
+/*        for(var j=0;j<num-1-i;j++){
+            document.write("0");
+        }*/
+        document.write("<br>");
+    }
+
+
+
+</script>
+</body>
+</html>

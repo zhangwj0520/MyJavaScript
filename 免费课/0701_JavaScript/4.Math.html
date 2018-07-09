@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //
+/*    console.log(Math.round(Math.random()*100));
+    var ary=[];
+    for (var i = 0; i <100 ; i++) {
+        ary.push(Math.round(Math.random()*100))
+
+    }*/
+var i=0;
+  var a=setInterval(function () {
+      console.log(i++);
+      if(i>10){
+          clearInterval(a);
+      }
+
+      if(Math.random()>0.5){
+            console.log("大");
+        }else
+        {
+            console.log("小");
+        }
+  },1000)
+
+
+</script>
+</body>
+</html>

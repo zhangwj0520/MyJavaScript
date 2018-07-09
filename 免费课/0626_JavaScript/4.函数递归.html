@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数递归</title>
+</head>
+<body>
+<script>
+    //函数递归:针对的是含函数,是js中一种重要的思想;
+    //函数:分为定义和执行
+    //递归函数:在函数体内部,调用函数自己本身,让其自己执行,这就是递归
+/*    var i=0;
+    function fn() {
+        console.log(i++);
+        if(i===100){
+            return;}
+        fn()
+    }
+
+    console.log(fn());*/
+    //求1-100直接是3的倍数的和
+/*    for(var i=1,sum=0;i<101;i++){
+        if(i%3===0){
+            sum+=i;
+        }
+    }
+    console.log(sum);*/
+
+/*    function sum(num) {
+        if(num===0){
+            return num;
+        }
+        if(num%3===0){
+            return num+sum(num-1);
+
+        }
+        if(num%3!==0){
+            return sum(num-1);
+        }
+
+    }
+    console.log(sum(100));*/
+
+
+    //斐波那契
+    //1 1 2 3 5 8 13 21 34 55 89
+/*    function fn1(n) {
+        if(n===1 || n===2){
+            return 1;
+        }else{
+            return fn1(n-1)+fn1(n-2);
+        }
+    }
+    //
+    console.log(fn1(11));*/
+
+    //1! + 2! +3! +4! +5!
+    //递归求n的阶乘
+    function factorial(num) {
+        if(num===1||num===0){
+            return 1;
+        }
+        if(num>1){
+            return num*factorial(num-1)
+        }
+    }
+    function sumFactorial(num) {
+        if(num===1){
+            return num;
+        }
+        else{
+            return factorial(num)+sumFactorial(num-1);
+        }
+    }
+    console.log(sumFactorial(6));
+
+    function sum2Factorial(n) {
+        var sum=0;
+        for(var j=1;j<=n;j++){
+            mul=1;
+            for(var i=1;i<=j;i++){
+                mul*=i;
+            }
+            sum+=mul;
+        }
+        return sum;
+    }
+
+    console.log(sum2Factorial(6));
+
+
+</script>
+</body>
+</html>

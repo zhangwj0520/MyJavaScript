@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // var num=2;
+    // var obj={
+    //     num:0,
+    //     fn:function () {
+    //         num=1;// 全局num=1,
+    //         console.log(this);
+    //         console.log(this.num);
+    //         (function (num) {
+    //             ++this.num;//this.num=2 全局的
+    //             num++;//私有作用域下 num=1
+    //             console.log(num);//1
+    //         })(this.num) //this.num=0    数中的this,指的是当前函数的执行主体;谁让函数执行的,this就指向谁.
+    //     }
+    // }
+    // obj.fn();//1
+    // console.log(window.num, obj.num);//(2,0)
+
+    var num = 1;
+    var obj = {
+        num: 2,
+        fn: (function () {
+            //函数内的this指向window
+            this.num *= 2; //全局num2
+            num += 3;
+            var num = 1;
+            return function () {
+                num += 2;
+                this.num += 2;
+                console.log(++num)
+            }
+        })()
+    };
+
+    console.log(obj);
+    var f = obj.fn;  //f = 函数返回值,同时, 全局num=2, 私有num=1,
+    f();//私有num=1->3,   输出4  私有num=4   函数内this.num指向window 全局num=4
+    obj.fn();//私有num4+2+1=7,  此时this指向obj  obj.num=4
+    console.log(window.num, obj.num)//(4,4)
+
+    //this--->关键字,在JS中有特殊意义;
+
+    //函数中的this,指的是当前函数的执行主体;谁让函数执行的,this就指向谁.
+    //1.在全局作用域下,this指向window
+    //2.函数体中的this,看函数执行前有没有".",如果有,那么点前面是谁,this就指向谁;如果没有,那么会指向window;
+    //3.如果给元素的事件行为绑定方法,那么方法中的this,就会指向当前被绑定的那个元素.
+    //4.回调函数中的this指向window.
+    //5.自执行函数中的this永远指向window;
+
+</script>
+</body>
+</html>

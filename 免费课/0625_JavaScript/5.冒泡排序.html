@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //数组的冒泡排序
+ /*   var ary=[12,33,77,13,12,3,66,87,90,15,25];*/
+
+/*
+    //sort排序
+    ary.sort(function (a,b) {
+        console.log(a, b);
+        return a-b;
+    });
+    console.log(ary);
+*/
+
+    //实现从小到大
+    //让相邻的两项进行比较,如果前面的一样比后面的一项大,那么让着两项互换位置,如果前面比后面的一项小,那么不换位置.
+/*    var ary=[12,33,77,13,12,3,66,87,90,15,25]
+    var sum=0;//就是循环次数.
+    for(var j=0;j<ary.length-1;j++) {
+        var num=0;
+        var flag=true;
+        for (var i = 0; i < ary.length - 1 -j; i++) {
+            console.log(1);
+            if (ary[i] > ary[i + 1]) {
+                var temp;
+                temp = ary[i];
+                ary[i] = ary[i + 1];
+                ary[i + 1] = temp;
+                flag =false;
+            }
+            num++;
+        }
+        sum+=num;
+        if(flag){
+            break;
+        }
+    }
+    console.log(ary);
+    console.log(sum);*/
+
+    var ary=[12,33,77,13,12,3,66,87,90,15,25];
+    function selectionSort(arr) {
+        var len = arr.length;
+        var minIndex, temp;
+        for (var i = 0; i < len - 1; i++) {
+            minIndex = i;
+            for (var j = i + 1; j < len; j++) {
+                console.log(1);
+                if (arr[j] < arr[minIndex]) {     // 寻找最小的数
+                    minIndex = j;                 // 将最小数的索引保存
+                }
+            }
+            temp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+        return arr;
+    }
+    selectionSort(ary);
+    console.log(ary);
+
+
+
+    var a=10;
+    var b=20;
+    a=a+b;
+    b=a-b;
+    a=a-b;
+
+</script>
+</body>
+</html>

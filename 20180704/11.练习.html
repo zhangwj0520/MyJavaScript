@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+</head>
+<body>
+<script>
+    //1.
+    // console.log(a); //undefined
+    // var a=12;
+    // function fn() {
+    //     console.log(a);
+    //     var a=13;
+    // }
+    // fn();//undefined
+    // console.log(a);//12
+
+    // 2
+    // console.log(a);//undefined
+    // var a = 12;
+    // function fn() {
+    //     console.log(a);
+    //     a = 13;
+    // }
+    // fn();//12
+    // console.log(a);//13
+
+    // //3.
+    // console.log(a); //报错,变量提示时不会提升a=12,只赋值未声明的语句在代码运行到这一行时执行.
+    // a = 12;
+    // function fn() {
+    //     console.log(a);
+    //     a = 13;
+    // }
+    // fn();
+    // console.log(a);
+
+    //4.
+    // var foo = 1;
+    // function bar() {
+    //     console.log(foo);//undefined
+    //     if (!foo) {
+    //         var foo = 10;
+    //     }
+    //     console.log(foo);//10
+    // }
+    // bar();
+
+    //5.
+    // var ary = [1,2,3,4];
+    // function sum(ary1) {
+    //     ary1[0] =100;//操作空间地址会把全局的ary[0]修改
+    //     ary1 = [];//创建新的空间地址.
+    //     ary1[0] = 10;
+    //     console.log(ary1)
+    // }
+    // sum(ary);//[10]
+    // console.log(ary);//[100,2,3,4]
+
+    //6.
+    // var n = 0;
+    // function a() {
+    //     var n = 10;
+    //     function b() {
+    //         n++;
+    //         alert(n);
+    //     }
+    //
+    //     b();//alert(11)  n=11;
+    //     return b;
+    // }
+    // var c = a();//c得到a()的返回值 f b;
+    // c();// 12
+    // alert(n); //0
+
+    // //7
+    // var a = 10, b = 11, c = 12;
+    // function test(a) {
+    //     a = 1;
+    //     var b = 2;
+    //     c = 3;
+    // }
+    // test(10);//c=3
+    // alert(a);//10
+    // alert(b);//11
+    // alert(c);//3
+
+    //8
+    // if (!("a" in window)) {
+    //     var a = 1;
+    // }
+    // alert(a);//undefined
+
+    //9.
+    // var a = 4;
+    // function b(x, y, a) {
+    //     alert(a);
+    //     arguments[2] = 10;
+    //     alert(a);
+    // }
+    // a = b(1, 2, 3);//第一步;alert3, alert10
+    // alert(a);//undefined
+
+    //10.*****
+    // var foo = 1;
+    // function bar() {
+    //     if (!foo) {//AO={foo:undefined},这一步if条件为真,会执行
+    //         var foo = 10
+    //     }
+    //     console.log(foo);
+    // }
+    // bar();//undefined
+
+
+    //11.
+    /* GO={
+    x1:undefined
+    f2:f
+    f3:f
+     }*/
+    // f2();//undefined
+    // f3();//报错
+    // var x1 = x2 = 10;
+    // function f2() {
+    //     console.log(x1);
+    // }
+    // function f3() {
+    //     console.log(x2);
+    // }
+
+    //12.***
+    /*   AO={
+           f:undefined
+       }*/
+
+    // function f5() {
+    //     f=ff();//把ff()的返回值赋值给f
+    //     return f;//返回f的值
+    //     function ff() {
+    //         return "f" in window;
+    //     };
+    //     var f;
+    // }
+    // console.log(f5());//false
+
+    //13.
+    //   var foo = 'hello';
+    // /*  AO={
+    //       foo:"hello",
+    //   }*/
+    //   (function (foo) {
+    //       console.log(foo);//"hello
+    //       var foo = foo || 'world';
+    //       console.log(foo);//"hello"
+    //   })(foo);
+    //   console.log(foo);//"hello"
+
+    //14.
+    //     var a = 4;
+    // /*    AO={
+    //         x:1,
+    //         y:2,
+    //         b:3,
+    //     }*/
+    //     function b(x, y, b) {
+    //         console.log(a);//4
+    //         arguments[2] = 10;//b=10
+    //         console.log(b);//10
+    //     }
+    //     a = b(1, 2, 3);
+    //     console.log(a);//undefined
+
+    //15.
+    /*    GO={
+            a:undefined,
+            f:undefined,
+            m:undefined,
+            n:undefined,
+            x:undefined,
+            fn:function () {
+
+            }
+        }*/
+    // var a = 9;
+    //
+    // function fn() {
+    //     a = 0;
+    //     return function (b) {
+    //         return b + a++;
+    //     }
+    // }
+    //
+    // var f = fn(); //f=function (b) {return b + a++;} a=0
+    // var m = f(5);//5,   a=1
+    // alert(m);//5
+    // var n = fn()(5);
+    // alert(n);//5
+    // var x = f(5);//
+    // alert(x);///////6
+    // alert(a);///////2
+
+
+</script>
+
+</body>
+</html>

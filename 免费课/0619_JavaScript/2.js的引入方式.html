@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        div{
+            width:100px;
+            height:100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box" onclick="alert(1)"></div>
+<script>
+    alert(2);//刷新出2
+    console.log("内嵌式1");
+    var oBox = document.getElementById("box");
+    oBox.onclick=function () {
+    alert(10)   ;//点击出10 不出1，按顺序加载。
+    }
+</script>
+<script>
+    console.log("内嵌式2");
+</script>
+<script src="JavaScript/index.js">
+    console.log(1001);
+
+
+
+</script>
+</body>
+</html>
+
+<c</con>

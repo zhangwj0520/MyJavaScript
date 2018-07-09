@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //插入排序
+    //去原有数组中取每一项,然后和新数组中的成员进行比较,从新数组后面开始,一一向前比较,比新数组项小,继续和前一项比较,知道当前项比数组中一项值大时,把它放道这一项的最后面.
+
+    var newAry = [];
+    newAry.push(ary[0]);
+    for (var i = 1; i < ary.length; i++) {
+        var cur = ary[i];
+        for (var j = newAry.length - 1; j >= 0; j--) {
+            if (cur < newAry[j]) { //如果数组中拿到的这一项比新数组中的这一项小,那么继续j--,和上一个成员进行比较;
+                if (j === 0) {
+                    newAry.unshift(cur);
+                    break;
+                }
+            } else {
+                newAry.splice(j + 1, 0, cur);
+                break;
+            }
+        }
+    }
+    console.log(newAry);
+    /*    var ary=[1,33,77,13,12,3,66,87,90,15,25];
+        var newAry=[];
+        newAry.push(ary[0]);
+        for(var i=1;i<ary.length;i++) {
+            var cur = ary[i];
+            for (var j = newAry.length - 1; j >= 0; j--) {
+                if(j==0){
+                    newAry.unshift(cur);
+                    break;
+                }
+                else if(cur >newAry[j]){
+                    newAry.splice(j + 1, 0, cur);
+                    break;
+                }
+
+            }
+        }
+        console.log(newAry);*/
+
+
+</script>
+</body>
+</html>

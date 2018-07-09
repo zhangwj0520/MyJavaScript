@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //函数的基础;
+    //函数:引用数据类型;
+    //function: 关键字:声明定义一个函数:
+    //function 函数名(){}
+    //函数分为定义和执行;
+    //函数:把视线相同功能的代码放到一个函数体中,当实现这个功能时,直接执行这个函数即可.
+    //----------减少了代码的冗余,高内聚,低耦合---->函数的封装.
+
+/*    function fn1() {
+        console.log(100);
+        document.write(100)
+    }
+    console.log(200);
+    fn1();// 函数执行.*/
+
+    function sum(a,b) {
+        var c=a+b;
+        c=c.toFixed(2);
+        console.log(c);
+        c=Number(c);
+        console.log(c);
+        console.log(a+"+"+b+"="+c);
+        document.write(a+"+"+b+"="+c);
+    }
+    sum(2.22222,3.33333)
+
+</script>
+</body>
+</html>

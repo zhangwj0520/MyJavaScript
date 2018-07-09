@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary=[12,55,78,5,27,98,43,67,90,16];
+    function quickQort(ary) {
+        if(ary.length<2){
+            return ary;
+        }
+        var middleIndex = Math.floor(ary.length/2);
+        var middleLeVal=ary.splice(middleIndex,1)[0];
+        var left=[];
+        var right=[];
+        for (var i = 0; i < ary.length; i++) {
+            var cur=ary[i];
+            if(cur<middleLeVal){
+                left.push(cur);
+            }else{
+                right.push(cur);
+            }
+        }
+        return quickQort(left).concat(middleLeVal,quickQort(right));
+
+    }
+
+    console.log(quickQort(ary));
+</script>
+</body>
+</html>

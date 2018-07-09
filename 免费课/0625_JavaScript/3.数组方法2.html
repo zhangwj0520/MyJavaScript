@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //7.sort
+    var ary=[11,12,13,15,33,22,4,66,55,7,99,88,22,22,99];
+    var a=ary.sort();
+    console.log(a);
+    console.log(ary);
+    //从大到小排序
+/*    ary.sort(function (a,b) {
+        return b-a;
+    })
+    //从小到大排序
+    ary.sort(function (a,b) {
+        return a-b;
+    })
+
+    console.log(ary);*/
+
+    //8.reverse()
+/*    var a = ary.reverse();
+    console.log(ary);
+    console.log(a);*/
+
+    //9.concat:数组的拼接
+/*    var ary1=["a","b"];
+    var a=ary.concat(ary1);
+    console.log(a);
+    console.log(ary);
+
+    var b = ary.concat(100,22);
+    console.log(b);
+    console.log(ary);
+
+    var newAry=ary.concat();//在新的空间存储一份原数组,空间地址发生改变,可以单独操作*/
+
+    //10.join
+/*    var a = ary.join("+");//11+33+22+4+66+55+7+99+88
+    console.log(a);
+    console.log(ary);
+    var a =ary.join("-");//11-33-22-4-66-55-7-99-88
+    console.log(a);
+    console.log(ary);
+    var a =ary.join(""); //1133224665579988
+    console.log(a);
+    console.log(ary);
+    var a =ary.join(); //11,33,22,4,66,55,7,99,88
+    console.log(a);
+    console.log(ary);*/
+
+    //11.indexOf
+/*    var a = ary.indexOf(ary[2]);
+    console.log(a);
+    console.log(ary);
+    var a = ary.indexOf(99999);//不存在返回 -1
+    console.log(a);
+    console.log(ary);
+    */
+    function index(a,num){
+        for (var i = 0; i < a.length; i++) {
+            if (a[i]===num){
+                return i;
+            }
+        }
+        return -1;
+
+    }
+    index(ary,29)
+
+    //12.lastIndexOf
+/*    var a = ary.lastIndexOf(22);
+    console.log(a);
+    console.log(ary);
+    */
+/*    var ary=[1,2,3,4,5]*/
+    //13.map
+/*   /!* var total=0;*!/
+    var a = ary.map(function (item,index) {
+        /!*console.log(item);*!/
+        /!*console.log(index);*!/
+        /!*total+=Number(item); ///数组求和*!/
+        return 1;
+    });
+    console.log(a);
+   /!* console.log(ary);*!/
+
+    //14.forEach
+    var a = ary.forEach(function (item,index){
+        /!*console.log(item);*!/
+        return 1;
+    })
+    console.log(a); //无返回值,undefined
+/!*    console.log(ary);*!/*/
+
+    //15.toString
+/*
+    var a =  ary.toString();
+    console.log(ary);
+    console.log(a);
+    console.log([12].toString());
+    console.log("".toString());
+*/
+
+    //16....展开运算符
+/*    var ary1=[12,3,4,5];
+    var ary2=[33,55,66];
+    var hh=[...ary1,...ary2];*/
+
+
+
+/*    var ary=[1,2,3,4,5]*/
+/*    var a=ary.indexOf(5);
+    console.log(a);
+    var b=ary.valueOf(2);
+    console.log(b);*/
+
+/*    var ary=[11,33,22,4,66,55,7,99,88,22,22,99]
+    var a =ary.sort(function (a,b) {
+        return a-b;
+    })
+    console.log(ary);*/
+
+
+</script>
+</body>
+</html>

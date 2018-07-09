@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //function 入口  形参
+    //function 出口  :  return;
+    //return 后面跟着的内容就是函数的返回值;
+    //函数名() ;代表函数返回值,函数体中return出来的;
+    //return ;结束整个函数,下面的代码不在运行;
+    //如果函数没有return,那么函数默认返回undefined
+    function sum() {
+        for(var i=0,total=0;i<arguments.length;i++)
+            if(typeof arguments[i]==="number"&&!isNaN(arguments[i])){
+                total+=arguments[i];
+            }
+//        console.log(total);
+            return total;
+    }
+     var a=sum("1",11,22,"12px",NaN)
+    console.log(a);
+    console.log(sum());
+    document.write(a);
+
+</script>
+</body>
+</html>

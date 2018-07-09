@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+
+</div>
+<script>
+    str="格力电器牢牢记住自己的使命。实业强国家强，格力电器是一个上市公司，但是对股民的责任也是牢牢记在心尖，我们从上市到今天，如果没有记错的话，我们分红已经超过300多亿";
+    var count=0;
+    var box=document.getElementById("box");
+    var a=setInterval(function () {
+        if(count>str.length){
+            clearInterval(a);
+        }
+        box.innerText=str.substring(0,count);
+        count++;
+        console.log(count);
+
+
+    },100)
+
+
+</script>
+</body>
+</html>

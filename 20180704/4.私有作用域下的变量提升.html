@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //全局作用域
+    //私有作用域
+    //块级作用域
+
+    //函数执行 首先会形成一个私有的作用域
+    //函数体中的变量提升发生在私有作用域形成之后
+
+    //私有变量, 1.在函数体中被var,被function过,就是私有的变量.
+    //          2.函数的形参也是私有变量.
+
+    //
+    // var a = 1;
+
+    function fn() {
+        function fn1() {
+            console.log(a + "fn1-1");
+            a = 12;
+            console.log(a + "fn1-2");
+        }
+
+        fn1();
+        console.log(a + "fn-2");
+    }
+
+    fn();
+    console.log(a);
+
+
+    /*    var b;
+        function fn() {
+            console.log(a);
+            console.log(b);
+            var a=10;
+            b=100;
+
+        }
+        fn();
+        console.log(b);*/
+
+    /*
+        function f(m,n) {
+            console.log(m);
+            function m() {
+            }
+        }
+        f(100,200)
+    */
+
+
+    //预解释(发生在函数执行前):
+    //1.创建AO(作用域)对象.
+    //2.找形参和变量声明,将变量和形参名作为AO属性名,值为undefined.
+    //3.将实参值赋予形参
+    //4.在函数体里面找函数声明,值赋予函数体.如果有形参值被赋实参,该实参会被覆盖.
+</script>
+
+</body>
+</html>

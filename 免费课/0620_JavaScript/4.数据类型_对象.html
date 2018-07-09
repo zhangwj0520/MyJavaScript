@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.引用数据类型,存储堆内存,
+    //对象: 由键值对组成;键值对由属性名和属性值组成,键值对用逗号隔开
+    //属性名和属性值用冒号隔开;属性名是字符串类型的.属性值是数据类型的一种;
+
+/*
+    var obj = {a:1}
+    console.log(obj.length); //undefined
+    console.log(obj[0]);//undefined
+    //没有length属性,没有索引;
+*/
+
+    //对象的定义;
+        //1.首先会开辟一个新的空间地址;
+        //2.把键值对存储到当前这个堆内存下;
+        //3.把这个空间地址给了变量
+
+    //对象名实际存储的是一个空间地址;
+/*    console.log(obj);
+    var a ={};
+    var b= [];*/
+
+    //在js中遇到{}[] 都会开辟新的空间地址;
+/*    var a=b=c=d=10;
+    d=9;
+    console.log(d);//9*/
+/*
+    var a =b =c  ={a:1};
+    console.log(a);
+    console.log(a.c);
+    c.c=0;
+    c ={};
+    c.a=2;
+    console.log(a);//{a: 1, c: 0}
+    console.log(a.a);
+    console.log(c);//{a: 2}
+    console.log(c.a);
+    console.log(c.c);*/
+
+    //2.对象的增删改查
+    var obj = {num:1};
+    //2.1.新增;对象名.属性名=属性值   或者   对象名["属性名"]=属性值;
+    //如果属性名字是数字的话,会按照数字从小到大顺序显示.
+    obj.a = 100 ;
+    obj["1"] ="1";
+    obj["22"] ="22";
+    obj["b"] ="bb";
+    console.log(obj);
+
+
+    //2.2 查询;  如果属性名不存在,那么获取的属性值是undefined;
+    var v =obj.num;
+    //var v1 = obj[num];//错误
+    var v1 = obj["num"];
+    console.log(v);
+    console.log(v1);
+
+    //2.3 修改:  属性没有就是新增,有就是修改;
+    obj.num = 99;
+    console.log(obj);
+    //2.4 删除 :
+    obj.num=null;//假删除
+    console.log(obj);
+    //delete
+    delete obj.num;//真删除
+    console.log(obj);
+
+    //3.in :判断当前属性名在对象中是否存在;如果存在返回true,不存在返回false;
+    //"属性名" in 对象名
+    //console.log(num in obj);//错误
+    console.log("num" in obj);
+    console.log("a" in obj);
+</script>
+</body>
+</html>

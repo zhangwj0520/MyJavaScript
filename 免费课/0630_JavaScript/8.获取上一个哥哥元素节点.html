@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div>大哥</div>
+    <!--哈哈哈哈-->
+    <div id="second">
+        <div id="center"></div>
+    </div>
+    <div></div>
+</div>
+<script>
+/*    var sec=document.getElementById("second");
+    function getBrother(curEle) {
+        var pre=curEle.previousSibling;
+        while(pre){
+            if (pre.nodeType===1){
+                return pre;
+            }
+            pre=pre.previousSibling;
+        }
+        return null;
+    }
+    var a=getBrother(sec);
+    console.log(a);
+    a=sec.previousElementSibling;
+    console.log(a);
+
+    function getNextBrother(curEle) {
+        var next=curEle.nextSibling;
+        while(next){
+            if(next.nodeType===1){
+                return next;
+            }
+            next=next.nextSibling;
+        }
+        return null;
+    }
+    var b=getNextBrother(sec);*/
+
+    //3.获取当前元素所有的兄弟元素节点
+    //4.获取当前元素祖先元素节点
+    function getParent(curEle) {
+        var parent =curEle.parentNode;
+        var ary=[];
+        while(parent){
+            ary.push(parent);
+            if(parent.nodeName==="HTML"){
+                return ary;
+            }
+            parent=parent.parentNode;
+        }
+    }
+    var cen=document.getElementById("center");
+    var a=getParent(cen);
+    console.log(a);
+
+</script>
+</body>
+</html>

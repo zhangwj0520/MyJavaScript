@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>堆内存的销毁</title>
+</head>
+<body>
+<script>
+    //形成两个虚拟的内存;栈内存,堆内存
+
+    //栈内存:作用域;
+    //堆内存的回收
+    //引用数据类型;
+    //在js中遇到[]{}都要开辟新的内存空间.
+
+
+    //谷歌浏览器,每个一段时间,会去检测当前的空间地址有没有被占用,如果没有被占用,那么浏览器会将其回收.
+    //火狐ie浏览器,采用的是计数规则,当堆内存地址被占用一次,那么对当前进行计数+1;如果不在占用那么就会-1,如果当前地址被占用0次,那么马上将其回收
+    // let ary = [];
+    // for (let i = 0; i < 150000; i++) {
+    //     ary.push(function f() {
+    //         console.log(i);
+    //     })
+    //     console.log(i);
+    // }
+
+    // var f={};
+    // console.log(f);
+    // f=null;
+    // console.log(f);
+    var ary = [12, 3, 4, 5, 6];
+    for (var i = 0; i < ary.length; i++) {
+        if (!isNaN(ary[i])) {
+            total += ary[i];
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        #time{
+            height: 40px;
+            width: 200px;
+            text-align: center;
+            line-height: 40px  ;
+            margin: 30px auto;
+            border: 2px solid red;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="time"></div>
+<script>
+    //倒计时:目标时间  --->计算当前的最新时间和目标的时间差, 计算当前差中含有多少个小时,多少个分钟,多少秒.把计算出来的小时,分钟.秒返回页面中
+    var time=document.getElementById("time");
+    var targetTime=new Date("2018/06/28 16:05:10");
+   /* var nDistance=targetTime-new Date();//计算目标时间距离当前最新时间的毫秒差.*/
+    function addZero(num) {
+        return num<10?"0"+num:num;
+    }
+    function count() {
+        var diffTime=targetTime-new Date();
+        console.log(new Date());
+        //计算时间差中含有多少个小时/分钟/秒
+        if(diffTime<=999){
+            time.style.backgroundColor="red";
+            time.innerText="倒计时结束";
+            clearInterval(a);
+            return;
+           /* time.innerText="倒计时结束";
+            alert("倒计时结束");*/
+          /*  window.close();
+            return;*/
+        }
+        var hours=Math.floor(diffTime/(1000*60*60));
+        var minutes=Math.floor((diffTime-hours*1000*60*60)/(1000*60));
+        var second=Math.floor((diffTime-hours*1000*60*60-minutes*1000*60)/1000);
+        time.innerText=addZero(hours)+":"+addZero(minutes)+":"+addZero(second);
+    }
+
+
+    count();
+    var a=setInterval(count,1000)
+
+
+
+</script>
+</body>
+</html>

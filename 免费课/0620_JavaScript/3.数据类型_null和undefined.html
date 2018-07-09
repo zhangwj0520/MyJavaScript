@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //null和undefined都代表没有;
+    //typeof null -->"object";空对象指针;
+    //区别:null 表示现在没有,但是以后可能会有;
+        //undefined 表示现在没有;以后也没有;
+    //常见的null的情况;
+    //1.通过ID获取元素,如果ID名字不存在,那么返回null;
+    //2.通过正则进行捕获时,如果没有获取到内容,那个结果是null;
+    //3.在清空对象,销毁堆内存是,给对象赋值为null　
+
+    //undefined
+    //1.当获取对象属性名对应的属性值时,如果属性名不存在,那么返回值是undefined.
+    //2.函数的形参如果没有实参赋值,在函数中默认存储undefined
+    //3.如果函数没有return,那么函数的返回值是undefined.
+    //4.如果变量只声明,没有赋值,那么默认存储是undefined.
+    //
+    var  gg = document.getElementById("aa")
+
+    var obj = {a:1};
+    console.log(obj.b);
+
+    // /null
+</script>
+</body>
+</html>

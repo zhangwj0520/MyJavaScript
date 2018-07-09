@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*    console.log(Date);
+    console.log(new Date())*/
+    //返回当前电脑的是系统时间.
+    var time=new Date();
+    console.log(time);
+console.log(time.getFullYear());//获取年
+console.log(time.getMonth());//获取月-0-11
+console.log(time.getDate());//获取日  1-31
+console.log(time.getDay());//获取星期 0-6
+console.log(time.getHours());//获取小时
+console.log(time.getMinutes());//获取分
+console.log(time.getSeconds());//获取秒
+console.log(time.getMilliseconds());//获取毫秒
+console.log("---");
+
+var curTime=new Date("2018/07/01 16:00:00");
+console.log(curTime);
+
+console.log(time.getTime());//距离1970-1-1 8:00的毫秒差
+console.log(Date.now());//获取当前时间距离1970-1-1 8:00的毫秒差,时间戳,不需要先获取当前时间.
+console.log(time.getUTCHours());
+console.log(time.getTimezoneOffset());//返回格林威治标准时间与本地时间与(GMT) 的分钟差。
+
+
+</script>
+
+</body>
+</html>

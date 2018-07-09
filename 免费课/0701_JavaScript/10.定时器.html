@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #time{
+            width: 200px;
+            height: 40px;
+            line-height: 40px ;
+            border: 5px solid red;
+            margin: 30px auto;
+            text-align: center;
+            font-size:24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<div id="time"></div>
+<body>
+<script>
+    var time=document.getElementById("time");
+    //1.需要确定目前时间
+    //2.计算当前时间和目标时间的毫秒差.
+    //3.计算毫秒差的有多少个小时,分钟,秒
+    //4.结合定时器,没隔一秒计算一次.
+    var targetTime=new Date("2018/07/01 20:50:00");
+    function addZero(num) {
+        return num<10?"0"+num:num;
+    }
+    function count() {
+        var curTime=new Date();
+        var difTime=targetTime-curTime;//毫秒差
+
+        if(difTime<=999){
+            time.style.backgroundColor="red";
+            time.innerText="倒计时结束";
+            clearInterval(a);
+            return;
+        }
+        var hours=Math.floor(difTime/(1000*60*60));
+        var minutes=Math.floor(difTime%(1000*60*60)/60/1000);
+        var second=Math.floor(difTime%(1000*60*60)%(1000*60)/1000);
+        time.innerText=addZero(hours)+":"+addZero(minutes)+":"+addZero(second);
+    }
+    count();
+    // var a=setInterval(count,1000);
+
+    var hah=0;
+
+    time.innerHTML = "点击开始计时";
+    time.onclick = function () {
+        alert("鼠标悬停可暂停计时");
+        hah =  setInterval(count,1000);
+        console.log(hah);
+    };
+
+     var a=setInterval(function () {
+            if(hah>1){
+                time.onmouseover=function () {
+                    clearInterval(hah);
+                    /*time.innerText="请耐心等待";*/
+                    console.log("清除"+hah);
+                };
+                time.onmouseout=function () {
+                    hah=setInterval(count,30);
+                    console.log("启动"+hah);
+                }
+            }
+       },1000);
+    console.log(a);
+
+</script>
+
+</body>
+</html>

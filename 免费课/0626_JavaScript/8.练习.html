@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #ul1{
+            margin: 50px auto;
+            height: 500px;
+            width: 40px;
+            list-style: none;
+        }
+        li{
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+    
+
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .pink{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<!--<input type="button" value="按钮">
+<input type="button" value="按钮">
+<input type="button" value="按钮">
+<input type="button" value="按钮">
+<input type="button" value="按钮">-->
+<ul id="ul1">
+    <li>111</li>
+    <li>11</li>
+    <li>11</li>
+    <li>11</li>
+    <li>11</li>
+</ul>
+
+<script>
+    function f() {
+        var oLis=document.getElementsByTagName("li");
+        len=oLis.length;
+        for(var i=0;i<len;i++) {
+            if(i%2===0){
+                oLis[i].style.backgroundColor="green";
+
+            }
+            else{
+                oLis[i].style.backgroundColor="red";
+
+            }
+        }
+
+
+
+    }
+
+
+    function bianse() {
+        var oLis=document.getElementsByTagName("li");
+        len=oLis.length;
+        for(var i=0;i<len;i++){
+            if(i%2===0){
+                oLis[i].className="green";
+                console.log(oLis[i].className);
+            }
+            else{
+                oLis[i].className="red";
+                console.log(oLis[i].className);
+            }
+            oLis[i].col=oLis[i].className;
+            oLis[i].onmouseover=function () {
+                this.className = "pink";
+                console.log("pink");
+
+            };
+            oLis[i].onmouseout=function () {
+                this.className=this.col;
+            }
+        }
+
+    }
+
+
+    bianse()
+
+    function btn1() {
+        var oBtn1=document.getElementsByTagName("input");
+        len=oBtn1.length;
+        for(var i=0;i<len;i++){
+            oBtn1[i].index=i+1;
+            oBtn1[i].onclick=function () {
+                alert("我是第"+this.index+"个按钮");
+                console.log(i);
+
+            }
+        }
+    }
+
+        function btn2() {
+            var oBtn1=document.getElementsByTagName("input");
+            len=oBtn1.length;
+            for(var i=0;i<len;i++){
+                oBtn1[i].setAttribute("onclick","alert('我是第"+(i+1)+"个按钮')");
+
+            }
+
+        }
+
+  
+
+
+   
+   
+    
+    
+</script> 
+    <div></div>
+
+
+</body>
+</html>

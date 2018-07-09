@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 5px;
+            padding:0;
+        }
+        #box{
+            width:100px;
+            height: 100px;
+            margin: 50px auto;
+            background-color: red;
+            text-align:center;
+            line-height: 100px;
+            color: white;
+            cursor: pointer;
+        }
+        body{
+            width:100%;
+            height: 100%;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="box">点我</div>
+<script>
+    var oBox = document.getElementById("box");
+    //给oBox这个元素绑定一个点击事件,当点击盒子的时候,触发后面的function里面的代码
+    console.dir(document.body);
+    oBox.onclick = function () {
+        //当页面是白色,点击,让其变成黑色;
+        //黑色边白色
+        var curBg = document.body.style.background;
+/*
+        if (curBg=="white"||curBg==""){
+            document.body.style.background="black";
+//            console.dir(document.body);/
+            console.log("black");
+        }
+        else if (curBg=="black"){
+            document.body.style.background="yellow";
+//            console.dir(document.body);
+            console.log("yellow");
+        }
+        else if (curBg=="yellow"){
+            document.body.style.background="blue";
+//            console.dir(document.body);
+            console.log("blue");
+        }
+        else if (curBg=="blue"){
+            document.body.style.background="white";
+//            console.dir(document.body);
+            console.log("white");
+        }
+*/
+
+        switch (curBg){
+            case "":
+            case "white":
+                document.body.style.background="black";
+                console.dir(document.body);
+                break;
+            case "black":
+                document.body.style.background="blue";
+                console.dir(document.body);
+                break;
+            case "bule" :
+                document.body.style.background="yellow";
+                console.dir(document.body);
+                break;
+            default:
+                document.body.style.background="";
+                console.dir(document.body);
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

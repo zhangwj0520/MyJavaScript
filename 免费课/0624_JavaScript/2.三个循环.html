@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //for  function
+    //让代码执行多次
+    //js单线程,每次只能执行一次,同步的
+/*    for(var i=0; i <19; i++){
+        if(i<10){
+            console.log(1);
+        }
+        else{
+            console.log(2);
+        }
+    }*/
+    //for循环
+    //1.初始化变量
+    //2.判断条件是否成立
+    //3.条件成立,执行循环体
+    //4.执行步长(i++)
+
+/*    var n=0;
+    console.log(n++);//先取值后加
+
+    (i++) +(++i) +i+ (i++)+(++i)+(i++)*/
+
+
+    //continue  结束本轮循环,continue下面的代码不执行,但执行步长.然后继续.
+    //break     结束整个循环 不在执行步长
+/*
+    for (var i=0;i<3;i++){
+        for (var j=0;j<3;j++){
+            for (var k=0;k<3;k++){
+                console.log(k+ "a");
+                if(k==2){
+                    break;
+                }
+
+            }
+            console.log(j + "b");
+        }
+        console.log(i + "c");
+
+    }
+*/
+
+    //for in 循环
+    //选获取属性名是数字达的键值对,并且按照从小到大的顺序输出
+    //key是字符串
+/*    var obj={a:1,b:2}
+    for (var key in obj){
+        console.log(key+":"+obj[key]);//对象的属性名
+       // console.log(obj.key);//错误写法
+    }*/
+/*
+    var ary=[1,2,3,4.5,5]
+    for (var key in ary){
+        console.log(ary[key])
+    }
+    var str="123asdf"
+    for (var key in str){
+        console.log(str[key]);
+
+    }
+*/
+
+    //while  一般用于不知道循环多少次,一般用于阻塞线程;
+    var i=0;
+    while(i<8){
+        console.log(++i);
+        console.log(new Date());
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型的比较</title>
+</head>
+<body>
+<script>
+    // =: 赋值
+    //== : 比较  ;  返回一个boolean;
+
+    //数据类型比较的规律
+    //1.对象==对象,比较的空间地址;
+    //2.对象==字符串,对象默认调用toString方法,先转换成字符串,再比较
+    //3.对象==布尔, 对象先转换字符串,再转换数字;布尔直接转换数字;
+    //4.对象==数字; 对象先调用toString方法转成成字符串,然后再转number
+    //5.布尔==数字: 布尔转数字
+    //6.字符串==数字:字符串转数字
+    //7.布尔==字符串:布尔转数字,字符串转数字,然后比较
+    //8.null == undefined: true   //null==null    undefined==undefined  都是true
+    //9.unll.undefined 和其他数据类型比较都是false;
+
+
+/*  console.log({} == {});//false
+    console.log({a:1} == {a:1});//false
+    console.log({} == "");//false
+    console.log({} == true);//false
+    console.log({} == false);//false
+    console.log({} == "[object Object]");//true
+    var a=b={a:1};
+    console.log(a == b); //true
+    console.log({a:1} == {a:1});//false
+    */
+
+/*
+    console.log([]== "1");//false
+    console.log([]== "");//true  对象和字符串
+    console.log([]== " ");//false
+    console.log([] == false);//true对象和布尔  先字符串,然后都转数字
+    console.log([] == 0);//true  对象和数字,先字符串 后数字
+    console.log(![] == false);//true  布尔和布尔
+    console.log([1] == true);//true  对象先转字符串"1",在转数字1
+    console.log([] == false);//true
+    console.log([1,1] == "1,1") //true
+*/
+
+/*
+    console.log(true == 10);//false 布尔和数字,布尔转数字
+    console.log("" == 0);//true
+    console.log(true == "1");//true
+    console.log("" == " ");//false
+    console.log("aa" == "aa");//true
+    console.log(!isNaN("12px")==0);//true
+    console.log(!{}=={});//false  布尔和对象比较
+ */
+/*
+    console.log(null == undefined);//true
+    console.log(null === undefined);//flase
+    console.log(NaN == NaN); //NaN 和自己都不等
+    console.log(null == null);//true
+    console.log(undefined == undefined);//true
+    console.log(null == undefined);//true   规定
+
+ */
+    ///=== ;绝对比较,不会进行数据类型之间的比较,只要数据类型不一样,就是false;
+/*
+    console.log(1 === "1");//flase
+    console.log(NaN === NaN); //false
+    console.log(null === undefined);//false
+ */
+
+
+    //! 后面跟等号,代表不等于;
+    //!==:绝对不等于
+    //!=:会进行数据类型之间的比较;
+
+/*
+    console.log([] !== false); //true
+    console.log([] != false); //false
+*/
+
+
+</script>
+</body>
+</html>

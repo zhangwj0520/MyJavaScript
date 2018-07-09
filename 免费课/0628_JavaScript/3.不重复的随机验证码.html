@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #code{
+            width: 200px;
+            height: 40px;
+            line-height: 40px ;
+            border: 5px solid red;
+            margin: 30px auto;
+            text-align: center;
+            font-size:24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="code"></div>
+<script>
+    //
+    var code=document.getElementById("code");
+    function getCode() {
+        //准备一个62个字符串,
+        //随机产生索引,随机数可以作为字符的索引.
+        //随机索引范围[0,61]
+        var str="0123456789qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM";
+        //随机数
+        var i=0;
+        var newStr="";
+        while(i<4){
+            var num=Math.round(Math.random()*61);
+            var curStr=str[num];
+            //把拼接之后的字符全部转大写,在验证.
+            if(newStr.toUpperCase().indexOf(curStr.toUpperCase())===-1){
+                newStr+=str[num];
+                i++;
+            }
+
+        }
+        code.innerHTML=newStr;
+
+    }
+/*    getCode();
+    code.onclick = getCode; //把函数的空间地址赋值给code的onclick属性*/
+
+
+
+
+    function getCodes() {
+        //准备一个62个字符串,
+        //随机产生索引,随机数可以作为字符的索引.
+        //随机索引范围[0,61]
+        var str="0123456789qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM";
+        //随机数
+        var i=0;
+        var newStr="";
+        while(i<4){
+            var num=Math.round(Math.random()*61);
+            var curStr=str[num];
+            var reg = new RegExp("curStr","g");
+            var str = str.replace(reg,"");
+                newStr+=str[num];
+                i++;
+
+
+        }
+        code.innerHTML=newStr;
+
+    }
+
+    getCodes();
+    code.onclick = getCodes;
+
+
+
+
+</script>
+</body>
+</html>

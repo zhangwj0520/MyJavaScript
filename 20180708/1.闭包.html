@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //闭包作用1保护
+    //jQuery 兼容所有浏览器
+    //zepto 小型jq,专门为移动端开发准备的.
+    //JQ代码片段
+    // (function(window,undefined){
+    //     var jQuery=function () {
+    //         //...
+    //     };
+    //     //...
+    //     window.jQuery=window.$=jQuery;
+    // })(window);
+    // //全局下使用私有变量
+    // jQuery();
+    // $()  //两个等价
+    // //jQuery 就使用了闭包.
+    //
+    // //Zepto的代码片段
+    // var Zepto=(function () {
+    //     var Zepto=function () {
+    //         //...
+    //     }
+    //     //...
+    //     return Zepto;
+    // })();
+    // var $=Zepto;
+    // Zepto();
+    // $();
+    // //如果两个都引用,$转让,后续学习.
+    // //真实项目中,利用该保护机制
+    // //A=
+    // ~function () {
+    //   //A代码.
+    //   function fn() {
+    //       //...
+    //   }
+    //   window.fn=fn;
+    // }()
+    // ~function () {
+    //     //B的代码
+    //     function fn() {
+    //
+    //     }
+    //     window.fn()//B调用A的方法
+    // }();
+    ///该方法不好
+    //
+
+    //闭包作用2:保存
+    //函数执行形成一个私有作用域,函数执行完成,新城的这个栈内存一般情况下都会自动释放.
+    //其他情况:函数执行完成,当前私有作用域(栈内存)中的某一部分内容被栈内存以外的其他东西(变量/元素的事件)占用了..当前的栈内存就不能释放,也就形成了不销毁的私有作用域(里面的私有变量也不会销毁).
+
+    // function fn() {
+    //     var i=1;
+    //     return function (n) {
+    //         console.log(n + i++);
+    //     }
+    // }
+    // var f=fn();
+    // f(10);
+    // fn()(10);
+    // f(20);
+    // fn()(20);
+
+    ////例2
+    // var i=1;
+    // function fn() {
+    //
+    //     return function (n) {
+    //         console.log(n + i++);
+    //     }
+    // }
+    // var f=fn();
+    // f(10);
+    // fn()(10);
+    // f(20);
+    // fn()(20);
+
+    //例3
+
+    // function fn(i) {
+    //
+    //     return function (n) {
+    //         console.log(n + i++);
+    //     }
+    // }
+    // var f=fn(10);//i=10;
+    // f(20);//30 i=11
+    // fn(10)(20);//30
+    // f(30);//41
+    // fn(20)(10);//30
+    // f(40);//52
+
+
+</script>
+</body>
+</html>

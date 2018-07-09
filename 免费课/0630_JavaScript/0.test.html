@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function children(){
+        var childList=curEle.childNodes;
+        var ary=[i];
+        for (var i = 0; i <ary.length; i++) {
+            if(childList[i].nodeType===1){
+                ary.push(childList[i])
+            }
+        }
+        return ary;
+    }
+    //previousSibling
+    //previousElementSibling
+    //nextSibling
+    //nextElementSibling
+    //firstChild
+    //firstElementChild
+    //lastChild
+    //lastElementChild
+
+   var ary=[12,33,56,78,23,15,80,18];
+    for (var j = 0; j < ary.length-1; j++) {
+        var flag=true;
+        for (var i = 0,tem; i < ary.length-1-j; i++) {
+            if(ary[i]>ary[i+1]){
+                tem=ary[i+1];
+                ary[i+1]=ary[i];
+                ary[i]=tem;
+                flag=false;
+            }
+        }
+        if (flag){
+            break;
+        }
+    }
+    console.log(ary);
+
+
+/*   课后思考题
+   var ary1 = [12,13,67,77,88,12,88,67];
+
+    //最后得到
+    var obj = {12:2,13:1....}*/
+
+    function fun(ary) {
+        var obj={};
+        var len = ary.length;
+        for (var i = 0; i <len; i++) {
+            var cur=ary[i];
+            if(cur in obj){//if(obj[cru])
+                obj[cur]++;
+                console.log(obj[cur]);
+            }else{
+                obj[cur]=1;
+                console.log(obj[cur]);
+            }
+        }
+        return obj;
+    }
+    var ary1 = [12,13,67,77,88,12,88,67];
+    console.log(fun(ary1));
+
+    ///插入排序
+    console.log("插入排序");
+    function fun2(ary) {
+        var newAry=[];
+        newAry.push(ary[0]);
+        var len=ary.length;
+        for (var i = 1; i <len; i++) {
+            var cur=ary[i];
+            var newLen=newAry.length;
+            var j = 0;
+            for (; j <newLen ; j++) {
+                if(cur<newAry[j]){
+                    newAry.splice(j,0,cur);
+                    break;
+                }
+            }
+            if(j===newLen){
+                newAry.push(cur)
+            }
+        }
+        return newAry;
+
+    }
+    var ary=[12,33,56,78,23,15,80,18];
+    console.log(fun2(ary));
+
+</script>
+
+</body>
+</html>

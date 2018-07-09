@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #tab{
+            width:500px;
+            height:350px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -250px;
+            margin-top:-175px;
+        }
+        #tab ul{
+            list-style: none;
+            overflow: hidden;
+        }
+        #tab ul li{
+            width:80px;
+            height:30px;
+            text-align: center;
+            line-height: 30px;
+            border: 1px solid lightgreen;
+            float:left;
+            margin-right:10px;
+            cursor:pointer;
+        }
+        #tab ul li.select{
+            background-color: #2419ff;
+        }
+        #tab div{
+            display: none;
+            width:500px;
+            height:320px;
+            text-align: center;
+            line-height: 320px;
+            font-size: 30px;
+            color:lightcoral;
+            border: 1px solid lightgreen;
+        }
+        #tab div.select{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div id="tab">
+    <ul>
+        <li class="select">世界杯</li>
+        <li>综艺</li>
+        <li>电影</li>
+    </ul>
+    <div class="select">梅西</div>
+    <div>跑男</div>
+    <div>复联3</div>
+</div>
+</body>
+<script>
+    //1.获取所有的li,和tab这个div盒子下的div
+    //2.给所有的li绑定函数,
+    //3.绑定函数中
+        //1.点击当前的li时,清空所有li的class
+        //2.让点击的li,新增class["select"]
+        //3.清空所有div身上的class
+        //4.只要让和点击这个li的元素索引相同的div新增class
+    var tab=document.getElementById("tab");
+    var oLis=tab.getElementsByTagName("li");
+    var oDiv=tab.getElementsByTagName("div");
+/*    console.log(oLis);
+    console.log(oDiv);*/
+    len=oLis.length;
+    console.log(oLis);
+    for (var i=0;i<len;i++){
+         oLis[i].index=i;
+         console.dir(oLis[i]);
+        //新增一个熟悉,自定义属性;
+        //给每个li新增一个属性叫index,
+        oLis[i].onclick=function () {
+            for(var j=0;j<len;j++){
+                //通过js删除所有li的class
+                oLis[j].className ="";
+                oDiv[j].className ="";
+            }
+            //函数中this指向当前被绑定的元素
+            this.className="select";
+            oDiv[this.index].className ="select";
+            console.log(oLis);
+
+
+        }
+    }
+
+
+</script>
+</html>

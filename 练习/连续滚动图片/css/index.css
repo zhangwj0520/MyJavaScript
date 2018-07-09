@@ -1,0 +1,21 @@
+.box{
+    position: relative;
+    overflow: hidden;
+    width:1100px ;
+    height: 163px;
+    margin: 50px auto  ;
+    border: 1px solid red;
+}
+.box ul{
+    width:1100px ;
+    height: 163px;
+    position: absolute;
+    background: transparent;
+}
+.box li{
+    float: left;
+    width: 275px;
+    height:163px;
+    padding: 10px;
+    box-sizing: border-box;
+}

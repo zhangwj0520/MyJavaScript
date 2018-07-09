@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="icon" href="">
+</head>
+<body>
+<div id="box" class="box" name="haha">
+    <div id="box1" class="box" name="haha"></div>
+    <span name="haha"></span>
+</div>
+<span>
+
+</span>
+<input type="text" name="haha">
+
+<script>
+    //要操作谁就获取谁
+    //1.获取元素
+        //1.document.getElementById
+    //兼容性,在IE8以下，或默认把name当做ｉｄ来获取．
+    //document:文档 :上下文必须是document.
+    //var oBox = oBox.getElementById("box1");  错误
+    //get: 获取
+    //Element 元素
+    //by通过
+    //id id名字 唯一,不能重复.
+
+/*    var oBox = document.getElementById("box");
+
+    console.log(typeof oBox); //document.getElementById
+    console.dir(oBox);*/
+
+    //2.document.getElementsByTagName() 通过标签名来获取元素
+    // 是一个类数组集合
+/*    var arr=document.getElementsByTagName("span");
+    console.log(arr);*/
+/*
+    var oBox = document.getElementById("box");
+    var arr=oBox.getElementsByTagName("span");
+
+    arr[0].style.backgroundColor="red";
+    console.log(arr);
+*/
+
+    //3.document.getElementsByClassName 类数组集合
+    //IE8以下不兼容的
+    //通过class名字获取元素;
+    //上下文可以修改.
+/*    var a=document.getElementsByClassName("box");
+    console.log(a);
+
+    //4.document.getElementsByName
+    //通过name属性获取元素.
+    //在IE9及以下,或默认把id名来获取
+    var b=document.getElementsByName("haha");
+    console.log(b);*/
+
+     //5.document.documentElement  获取当前的html
+
+ /*   var htm=document.getElementsByTagName("html");
+    console.log(htm);*/
+/*
+    console.log(document.documentElement);
+
+    //6.document.body   获取页面的body元素
+    console.log(document.body);
+*/
+
+    //7.获取当前浏览器可是窗口的高度和宽度
+
+/*    var winW=document.documentElement.clientWidth||document.body.clientWidth;
+    console.log(winW);
+    var winH=document.documentElement.clientHeight||document.body.clientHeight;
+    console.log(winH);*/
+
+    //8.获取元素
+    //document.querySelector()
+    //如果是id前面需要加一个#,如果是class,需要加一个点. 多个元素只能获取最外层的一个元素
+    //document.querySelectorAll()
+    //.....获取所有元素.
+    var a=document.querySelector("div");
+    console.log(a);
+/*
+    var oId= document.getElementById("box");
+    var oName=document.getElementsByName();
+*/
+
+
+</script>
+<script >
+
+</script>
+</body>
+</html>
