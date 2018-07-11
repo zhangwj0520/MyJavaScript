@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<div>dddddddddd</div>
+<div id="box">dddddddddd</div>
 <script>
     //this  当前函数执行的主体
     //this是谁和函数在哪里定义的以及在哪里执行的没有任何关系
@@ -34,33 +34,33 @@
     // }();
     //在jS严格模式下,如果执行主体不明确,this指向的是undefined(非严格模式下指向的是window)执行主体才是window
 
-    // function fn() {
-    //     console.log(this);
-    // }
-    // document.body.onclick=function () {
-    //     //this->document.body
-    //     fn();
-    // }
+    function fn() {
+        console.log(this);
+    }
+    document.body.onclick=function () {
+        console.log(this);
+        fn();
+    }
 
 
+    // //
+    // var num=1,obj={
+    //     num:2,
+    //     fn:(function (num) {
+    //         this.num*=2;
+    //         num+=2;
+    //         return function () {
+    //             this.num*=3;
+    //             num++;
+    //             console.log(num);
+    //         }
+    //     })(num)
+    // };
+    // var f=obj.fn;
     //
-    var num=1,obj={
-        num:2,
-        fn:(function (num) {
-            this.num*=2;
-            num+=2;
-            return function () {
-                this.num*=3;
-                num++;
-                console.log(num);
-            }
-        })(num)
-    };
-    var f=obj.fn;
-
-    f();  //4
-    obj.fn();//5
-    console.log(num, obj.num);//6  6
+    // f();  //4
+    // obj.fn();//5
+    // console.log(num, obj.num);//6  6
 
      //1.obj 定义   GO:num
     //              obj:{num:2,fn:自执行函数的结果}

@@ -7,14 +7,17 @@
 <body>
 <script>
 
-    //this--->关键字,在JS中有特殊意义;
+    //this--->关键字,在作用域下有特殊意义;
 
     //函数中的this,指的是当前函数的执行主体;谁让函数执行的,this就指向谁.
     //1.在全局作用域下,this指向window
     //2.函数体中的this,看函数执行前有没有".",如果有,那么点前面是谁,this就指向谁;如果没有,那么会指向window;
     //3.如果给元素的事件行为绑定方法,那么方法中的this,就会指向当前被绑定的那个元素.
-    //4.回调函数中的this指向window.
+    //4.回调函数(匿名函数)中的this指向window.
     //5.自执行函数中的this永远指向window;
+    //6.构造函数的this指向当前类的实例
+    //7.call,apply,bind可以改变this关键字
+
 
 
     //回调函数;
@@ -26,21 +29,27 @@
     //     console.log(this);
     // }
 
+    var  ary=[22,44,33,55];
+        ary.forEach(function (item,index) {
+            ary[index]=index;
+
+    });
+    console.log(ary);
 
     //自执行函数
     // (function () {
     //     console.log(this);
     // })();
 
-    var obj = {
-        num: 1,
-        fn: (function () {
-            console.log(this);
-            return 2;
-        })()
-    }
-    // console.log(obj.fn);
-    console.log(obj);
+    // var obj = {
+    //     num: 1,
+    //     fn: (function () {
+    //         console.log(this);
+    //         return 2;
+    //     })()
+    // }
+    // // console.log(obj.fn);
+    // console.log(obj);
 
 
     // //1.
