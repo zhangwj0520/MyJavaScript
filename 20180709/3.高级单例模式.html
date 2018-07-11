@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高级单例模式</title>
+</head>
+<body>
+<script>
+    //基于js高阶编程技巧:惰性思想来实现单例模式
+    //并且可以把常用的设计模式(例如:命令模式,发布订阅模式,promise设计模式)等融合进来,最后清晰的规范化我们的业务逻辑代码,方便后期的二次开发和维护..
+    //这种设计思想综合体就是高级单例模式,也就是项目中做常用的
+    // var searchModel=(function () {
+    //     var $searchPlan=$.Callbacks();
+    //
+    //     function submit() {
+    //         ///
+    //     }
+    //     $searchPlan.add(submit);
+    //     function fn() {
+    //         ///
+    //     }
+    //     return {
+    //         init:function () {
+    //             this.submit();
+    //             this.fn();
+    //         }
+    //     }
+    // })();
+    // searchModel.submit();
+
+    let xiaozhao = (function () {
+        var name = 'jd';
+        function login() {
+            console.log('这是我给jd起的名字叫'+name);
+
+            return this;
+        }
+        function home() {
+            console.log('这是我写的jd主页')
+        }
+
+
+        function init() {
+            this.login().home()
+        }
+        return {
+            home,
+            login:login,// es6语法，在对象中，如果属性名和属性值相同的话，可以简写一个
+            init,
+            num:1
+        }
+    })();
+    xiaozhao.init()
+
+
+
+</script>
+</body>
+</html>

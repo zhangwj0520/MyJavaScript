@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title>包装类</title>
+</head>
+<body>
+<script>
+	//数字,字符串,布尔可以设置属性 分两种原始和对象
+	//undefined和null不可以.
+	
+    // var str= new String('abc');
+    // str.a="bcd";
+    // console.log(str.a);
+    // str.sayValue=function () {
+	 //    return this.a
+    // }
+    // console.log(str.sayValue());
+    //
+    // var num=new Number(123);
+    // var bol=new Boolean("ture");
+    // console.log(num);
+	
+	
+	//包装类
+	// var arr=[1,2,3,4];
+	// arr.length=2;
+	// console.log(arr);//[1,2]
+	//
+	// var str="abcd";
+	// str.length=2;//new String("abcd").length=2  ;   delete
+	// console.log(str.length);//new String("abcd").length=4;
+	// console.log(str);
+	
+	
+	//例题
+    // var str="abc";
+    // str+=1;
+    // var test=typeof (str);
+    // console.log(test);//string
+    // console.log(test.length);//6
+    // if(test.length==6){//条件是真
+	 //    test.sign="typeof的结果可能为string";//先new  后delete
+    // }
+    // console.log(test.sign);
+	
+	//
+	// var a=5;
+	// function test() {
+	// 	a=0;
+	// 	alert(a)
+	// 	;
+	// 	alert(this.a)
+	// 	;
+	// 	var a;
+	// 	alert(a);
+	// }
+	// //test();
+	// new test()
+	
+	// 闭包
+	// function person(name, age, sex) {
+	// 	var a=0;
+	// 	this.name=name;
+	// 	this.age=age;
+	// 	this.sex=sex;
+	// 	function sss() {
+	// 		a++;
+	// 		document.write(a);
+     //    }
+     //    this.say=sss;
+	// }
+	// var oPerson=new person();
+	// oPerson.say();//1
+	// oPerson.say();//2
+	// var oPerson1=new person();
+	// oPerson1.say();//1
+	
+	//
+	var x=1,y=z=0;
+	function add(n) {
+		return n=n+1;
+    }
+	y=add(x);
+	function add(n) {
+		return n=n+3;
+    }
+    z=add(x);
+	//x=1, y=4 z=4
+    console.log(x, y, z);
+
+</script>
+
+</body>
+</html>

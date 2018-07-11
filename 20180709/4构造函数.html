@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "UTF-8">
+	<title>构造函数内部原理</title>
+</head>
+<body>
+<script>
+	//构造函数内部原理
+	//1.在函数体最前面隐式的加上this={}
+	//2.执行this.xxx=aaa;
+	//3.隐式的返回this
+
+    // function Student(name, age, sex) {
+    //     //var this={};
+    //     this.name=name;
+    //     this.age=age;
+    //     this.sex=sex;
+    //     //return this; 隐式的返回构造函数
+    // }
+    // var student1=new Student("wanglu",22,"girl");
+    // console.log(student1);
+	
+	//李二
+    function Person(name, height) {
+		//var this={};
+	    this.name=name;
+		this.height=height;
+		this.say=function () {
+            console.log(this.say);
+        };
+        return 123;//不影响
+	    return {};//影响
+    }
+
+    console.log(new Person("xiaoang", 180).name);
+	
+	//例3
+	
+
+
+</script>
+</body>
+</html>

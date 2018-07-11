@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型深入</title>
+</head>
+<body>
+<script>
+    //自定义类和内置类
+    function Fn() {
+
+    }
+    Fn.prototype.getX=function () {//共有属性
+
+    }
+    Fn();
+    var f=new Fn();//实例
+    console.log(f);
+    console.log("getX" in f);//
+
+</script>
+</body>
+</html>

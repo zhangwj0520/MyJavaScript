@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型中的this</title>
+</head>
+<body>
+<script>
+    function Fn() {
+        this.x=10;
+        this.y=100;
+        // this.sum=function () {
+        //     console.log(this.x + this.y);
+        //     console.log(this);
+        // }
+        // this.z=12;
+    }
+    Fn.prototype.x=8;
+    // Fn.prototype.sum=function () {
+    //     console.log(this.x + this.y);
+    // };
+    Object.prototype.sum=function(){
+        console.log(this.x + this.y);
+
+    }
+
+    //当前作用域this跟函数执行有关系.
+    //如果私有属性存在,那么会直接执行私有属性,不存在继续向公有属性查找;
+
+    var f=new Fn;
+    f.sum();//110
+    f.__proto__.sum();//8+undefined===NaN
+    Fn.prototype.sum();//NaN
+    console.log(f.__proto__ == Fn.prototype);//true 指向一个空间地址.
+    console.log(f.sum === Fn.prototype.sum);//false  第一个是私有的 ,第二个是公有的
+    console.log(f.num);//
+    var t=Fn.prototype.sum;
+    t();//此时this指向window
+    //原型中的this,需要看函数执行前有没有点,点前面是什么,this就是什么;
+    console.log(f.sum === f.__proto__.sum);
+
+</script>
+
+</body>
+</html>

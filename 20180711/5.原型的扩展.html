@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型的扩展</title>
+</head>
+<body>
+<script>
+    //Array :内置的类
+    // console.dir(Array);
+    // var ary=[1,1,2,2,3,3,4,4,5,6,6,6];
+    // console.log(ary.quchong());
+    // //quchong函数放在原型函数定义之前会报错
+    // Array.prototype.quchong=function () {
+    //     //对象的属性名不能重复;
+    //     var obj={};
+    //     for (var i= 0; i <this.length ; i++) {
+    //         var cur=this[i];
+    //         if(cur in obj){
+    //             this[i]=this[this.length-1];
+    //             i--;
+    //             this.length--;
+    //             continue;
+    //         }
+    //         obj[cur]=cur;
+    //     }
+    //     return this;
+    // }
+    //
+    // var a=[3,3,3,5,5,6,7,8];
+    // console.log(a.quchong());
+
+    // function Fn() {
+    //
+    // }
+    // Fn.prototype.sum=function () {
+    //
+    // }
+    // console.log(Fn.prototype);
+
+    //第二种原型扩展方式;
+    //用新的空间地址覆盖原有的空间,那么空间下自带的constructor属性就会消失,如果需要,需要手动新增constructor
+    //如果不手动新增,那么constructor属性值就会指向Object
+
+    // function Fn() {
+    //     this.num=100;
+    //
+    // }
+    // // var a=new Fn;
+    // // a.sum();  ///不能执行
+    // Fn.prototype={
+    //     constructor:Fn,
+    //     num:10,
+    //     sum:function () {
+    //         console.log(this.num);
+    //     }
+    // };
+
+
+ //Array :内置类原型不允许重新修改它的空间地址,但是可以给其新增方法:
+    //自定义类可以修改.
+
+    // Array.prototype={
+    //     quchong:function (){
+    //     //对象的属性名不能重复;
+    //     var obj={};
+    //     for (var i= 0; i <this.length ; i++) {
+    //         var cur=this[i];
+    //         if(cur in obj){
+    //             this[i]=this[this.length-1];
+    //             i--;
+    //             this.length--;
+    //             continue;
+    //         }
+    //         obj[cur]=cur;
+    //     }
+    //     return this;
+    // }}
+    // var ary=[100,100,100];
+    // ary.push(100);
+    // console.log(ary);
+    // ary.quchong();//会报错,
+
+    // Array.prototype.myPush=function () {
+    //     var len=arguments.length;
+    //     for (var i = 0; i < len; i++) {
+    //         this[this.length]=arguments[i];
+    //     }
+    //     return this.length;
+    // }
+    // var ary=[1,2,3];
+    // console.log(ary.myPush(1, 2));
+    // console.log(ary);
+
+    //pop unshift shift slice indexOf reverse concat  join;
+    // var ary=[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5];
+    // Array.prototype.myIndexof=function (item) {
+    //     for (let i = 0; i <this.length ; i++) {
+    //         if(item===this[i]){
+    //             return i;
+    //         }
+    //     }
+    //     return -1;
+    // }
+    // Array.prototype.mypop=function () {
+    //     var temp=this[this.length-1];
+    //     this.length--;
+    //     return temp;
+    // };
+    // console.log(ary.mypop());
+    
+    Array.prototype.myUnshift=function () {
+        var len=arguments.length;
+        for (var j = 0; j < len; j++) {
+            for (var i = this.length; i >0; i--) {
+                this[i]=this[i-1];
+            }
+            this[0]=arguments[len-j-1];
+        }
+        return this.length;
+    }
+    var ary=[1,2,3,4,5];
+    console.log(ary.myUnshift(6, 7, 8));
+    console.log(ary);
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // var num = 2;
+    // var obj = {num: 1};
+    // obj.fn = (function (num) {
+    //     this.num += 2;
+    //     num--;
+    //     return function (n) {
+    //         this.num += 2;
+    //
+    //         num--;
+    //         console.log(n + ++num);
+    //     }
+    // })(this.num);//2
+    //
+    // var fn = obj.fn;
+    // fn(2);///3
+    // obj.fn(1);//2
+    // console.log(num, obj.num);//
+
+/*
+*     0  fn(2)  AO{n:2 ,}  打印3
+*     -1:::::        obj.fn   AO{num:1 }
+  *   -2::::::      GO{   num:6  ,obj{num:3,fu:....}             }
+*
+*
+* */
+
+
+
+
+//     var num = 10;
+//     var obj = {num: 15};
+//     obj.fn = (function (num) {
+//         this.num += 10;
+//         num *= 2;
+//         return function (n) {
+//             this.num += n;
+//             console.log(n + (--num));
+//         }
+//     })(obj.num);
+//     var fn = obj.fn;
+//
+//     fn(10);//39
+//     obj.fn(15);//28+15
+//     console.log(window.num, obj.num);
+//
+// /*
+// *   GO:{num:30,  obj{num:30,fn:}}
+// *   obj.fn:AO{num:28}
+// *
+// *
+// *   fn(10) AO{n:10}
+// *   */
+
+
+
+    // var number =2;
+    // var obj = {
+    //     number :4,
+    //     fn1 : (function () {
+    //         this.number*=2;
+    //         number = number*2;
+    //         var number = 3;
+    //         return function () {
+    //             this.number*=2;
+    //             number*=3;
+    //             console.log(number);
+    //         }
+    //     })()
+    // };
+    // var fn1 = obj.fn1;
+    // fn1();//9
+    // obj.fn1();//27
+    // console.log(window.number,obj.number);///8   8
+    /*
+    * go{number:8, obj:{number:8,fn1:} }
+    * obj AO{number:27}
+    * fn1() {}
+    *
+    *
+    *
+    *
+    * */
+</script>
+</body>
+</html>
