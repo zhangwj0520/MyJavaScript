@@ -8,7 +8,7 @@
 <script>
     // 原型作业题
     //
-    // //1.
+    //1.
     // function C1(name){
     //     if(name) this.name = name;
     // }
@@ -21,15 +21,13 @@
     // C1.prototype.name='Tom';
     // C2.prototype.name='Tom';
     // C3.prototype.name='Tom';
-    // alert(new C1().name)+(new C2().name)+(new C3().name);
-    // alert的结果
+    // alert((new C1().name)+(new C2().name)+(new C3().name));//Tomundefinedjoin
     //
     // //2.
     // function fun(){
-    //      this.a=0;
+    //     this.a=0;
     //     this.b=function(){
     //         alert(this.a);
-    //
     //     }
     // }
     // fun.prototype={
@@ -39,22 +37,20 @@
     //     },
     //     c:function(){
     //         this.a=30;
-    //         alert(this.a)
+    //         alert(this.a);
     //         console.log(this);
-    //
     //     }
-    // }
-    // var my_fun=new fun();
-    // my_fun.b();
-    // my_fun.c();
-    // my_fun.b();
+    // };
+    // var my_fun=new fun();//my_fun={a:0,b:function(){alert(this.a)}
+    // my_fun.b();//0
+    // my_fun.c();//30 {a:30,b:function(){alert(this.a)}
+    // my_fun.b();//30
 
 
 
     //
-    // //3.
+    //3.
     // function Foo() {
-    //
     //     getName = function () {
     //         console.log(1);
     //     };
@@ -72,18 +68,14 @@
     // function getName() {
     //     console.log(5);
     // }
-    //
-    //
     // Foo.getName();//2
-    //
-    // console.log(Foo());
-    // getName();//4
-    //
-    // console.log(Foo());
+    // console.log(Foo());//window
+    // getName();//1
+    // console.log(Foo());//window
     // Foo().getName();//1
     // getName();//1
-    // new Foo.getName();//2   {}
-    // new Foo().getName();// 3
+    // new Foo.getName();//2
+    // new Foo().getName();//3
 
 
     //4.
@@ -100,71 +92,67 @@
     // Fn.prototype.getY = function () {
     //     console.log(this.y);
     // };
-    // var f1 = new Fn;
+    // var f1 = new Fn;//
     // var f2 = new Fn;
-    // console.log(f1);
-    // console.log(f2);
-    // console.log(f1.getX === f2.getX);//false  比较的是地址
-    // console.log(f1.getY === f2.getY);//true
+    // console.log(f1);//{x:100,y:200,getX:f}
+    // console.log(f2);//{x:100,y:200,getX:f}
+    // console.log(f1.getX === f2.getX);//false ,私有比较地址
+    // console.log(f1.getY === f2.getY);//true  ,公共
     // console.log(f1.__proto__.getY === Fn.prototype.getY);//true
     // console.log(f1.__proto__.getX === f2.getX);//false
     // console.log(f1.getX === Fn.prototype.getX);//false
-    // console.log(f1.constructor);//Fn()
-    // console.log(Fn.prototype.__proto__.constructor);
+    // console.log(f1.constructor);//Fn(){this.x=100;this.y=200;this.getX....}
+    // console.log(Fn.prototype.__proto__.constructor);//Object(){[native code]}
     // f1.getX();//100
     // f1.__proto__.getX();//undefined
     // f2.getY();//200
-    // Fn.prototype.getY();//undefi
+    // Fn.prototype.getY();//undefined
     //
     //
     // //5
-    // var name = 'zhufengpeixun'
+    // var name = 'zhufengpeixun';
     // var Fn =function (name){
-    //     var name = 'world'
-    //     this.name = 'zhufeng'
+    //     var name = 'world';
+    //     this.name = 'zhufeng';
     //     this.sex =function(){
-    //         this.name = 'hello'
+    //         this.name = 'hello';
     //     }
-    // }
-    // var f1 = new Fn(name)
-    // var f2 = new Fn('age')
-    // console.log(f1.name)
-    // console.log(f2.age)
-    // f1.sex()
-    // console.log(f1)
-    // f1.sex === f2.sex
-    // Fn.name == f1.name
-    //
+    // };
+    // var f1 = new Fn(name); //Fn{name:"zhufeng",sex:f}
+    // var f2 = new Fn('age');//Fn{name:"zhufeng",sex:f}
+    // console.log(f1.name);//zhufeng
+    // console.log(f2.age);//undefined
+    // f1.sex();//
+    // console.log(f1);//Fn{name:"hello",sex:f}
+    // console.log(f1.sex === f2.sex);//false
+    // console.log(Fn.name === f1.name);//false
+
     // //6
-    // function Fn(){
-    //     var a =1
-    //     this.a = a
-    // }
-    // Fn.prototype.say = function(){
-    //     this.a = 2
-    // }
-    // Fn.prototype = new Fn
-    // f1.__proto__.b = function (){
-    //     this.a = 3
-    // }
-    // var f1 = new Fn
-    // console.log(f1.a)
-    // console.log(f1.prototype)
-    // console.log(f1.b)
-    // f1.hasOwnProperty('b')
-    // 'b' in f1
-    // f1.constructor == Fn
+    function Fn(){
+        var a =1;
+        this.a = a;
+    }
+    Fn.prototype.say = function(){
+        this.a = 2;
+    };
+    Fn.prototype = new Fn;
+    var f1 = new Fn;//{a:1}
+    f1.__proto__.b = function (){
+        this.a = 3;
+    };
+
+    console.log(f1.a);//1
+    console.log(f1.prototype);//undefined  对象没有prototype
+    console.log(f1.b);//function(){this.a=3};
+    console.log(f1.hasOwnProperty('b'));//false
+    console.log('b' in f1);//false
+    console.log(f1.constructor == Fn);//true
+//构造该对象的构造函数的原型
     //
+
     //
     // //
     // 封装一个方法：实现数组shift方法，要求返回值是返回后的数组，原数组改变
-
-
-
-
-
-
-
 </script>
 </body>
 </html>

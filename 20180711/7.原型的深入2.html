@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型深入</title>
+</head>
+<body>
+<script>
+    //1.所有的实例都是对象数据类型的.
+    //2.所有的函数数据类型(普通函数/类(内置类/自定义))都是Function的一个实例;Function是所有函数的基类;
+    //3.所有的对象数据类型(实例.prototype,对象)都是Object的一个实例:Object是所有对象数据类型的基类
+
+    //Function 首先是自己的一个实例
+
+    //instanceof:只要当前类在当前实例的原型链上,那么就会返回true;
+
+
+     function fn() {
+
+    }
+    console.log(fn instanceof Function);
+    console.log(fn instanceof Object);
+    console.log(Array instanceof Function);
+    console.log(Object instanceof Function);
+    console.log(Function instanceof Object);
+    console.log(Function instanceof Function);
+
+    //Object.prototype.__proto__ :null
+
+    var obj={};
+    console.log(obj instanceof Function);
+    var ary=[];
+    console.log(ary instanceof Function);//false
+    console.log(ary instanceof Array);//true
+    console.log(ary instanceof Object);//true
+    console.log(Function === Function.constructor);//true
+    console.log(Function.prototype === Function.__proto__);//true
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //call  apply  bind  Function 的原型上
+    //改变this指向的方法;
+    //call方法  执行:1.fn通过__proto__找到Function原型上的call方法
+                //2.当call运行时,改变了fn中的this指向,让它执行call方法传进来第一个参数.
+                //3.并且让fn运行.
+
+    //call 的形参除去第一个,后面都是call前面函数的形参.
+    //如果call不传递参数,那么会默认指向window.
+
+    // console.log(Function.prototype.call);
+    // var obj={a:1};
+    // function fn(num) {
+    //     console.log(this);
+    //     console.log(num);
+    //
+    // }
+    // // fn();//this------>window
+    // // // console.log(fn.call);
+    // // console.dir(fn);
+    // // fn.call(obj);
+    // // fn.call(obj,100);
+    // fn.call();
+    // fn();
+    //
+
+    // var obj={a:1,fn:function(num) {
+    //     console.log(this);
+    //
+    //
+    // }};
+    // obj.fn();//obj
+    // obj.fn.call();//window
+
+    //apply()//第一个参数this指向的对象,
+    //第二个参数是一个引用数据类型,一般都是数组.
+    //函数时一个一个接受的数组的每一项.
+    // function fn(m, n, o) {
+    //     console.log(this);
+    //     console.log(m);
+    //     console.log(n);
+    //     console.log(o);
+    //
+    // }
+    // fn.apply({},[10,20,30]);
+    // fn.apply({a:1},[10,20,30]);
+    // fn.apply({a:1},[])
+
+    //bind();预处理this指向,只是提前改变了this指向,并没有让fn马上运行;
+    //bind 在IE8及以下不兼容.
+    //传参方法和call方法是一样的,或者在重新定义的f中传参数
+
+    function fn(m,n,o) {
+        console.log(this);
+        console.log(m);
+        console.log(n);
+    }
+    var f=fn.bind({});//先修改this  在调用.  第一个传参数方法
+    f(10,20,30);
+    var f1=fn.bind({},1,2,3);//第二种传参数反复
+    f1();
+    fn();
+
+
+
+
+
+</script>
+</body>
+</html>
